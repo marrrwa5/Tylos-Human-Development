@@ -1,0 +1,43 @@
+"use client";
+
+import { ArrowRight } from "lucide-react";
+import ScrollReveal from "@/components/shared/ScrollReveal";
+import SectionHeading from "@/components/shared/SectionHeading";
+import CTAButton from "@/components/shared/CTAButton";
+import CourseCard from "@/components/courses/CourseCard";
+import { getFeaturedCourses } from "@/data/courses";
+import { useLanguage } from "@/context/LanguageContext";
+
+export default function FeaturedCourses() {
+  const featured = getFeaturedCourses();
+  const { t } = useLanguage();
+
+  return (
+    <section className="section-padding bg-[#0d1e35]">
+      <div className="container-wide">
+        <ScrollReveal>
+          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+            <SectionHeading
+              title={t("Featured Courses", "الدورات المميزة")}
+              subtitle={t("Explore our most popular internationally accredited programs.", "استكشف أكثر برامجنا المعتمدة دولياً شعبيةً.")}
+              centered={false}
+              light
+            />
+            <CTAButton href="/courses" variant="outline" size="sm" className="flex-shrink-0 border-white/30 text-white hover:bg-white hover:text-blue-dark">
+              {t("View All Courses", "عرض جميع الدورات")}
+              <ArrowRight className="ml-2 h-4 w-4" />
+            </CTAButton>
+          </div>
+        </ScrollReveal>
+
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          {featured.map((course, index) => (
+            <ScrollReveal key={course.id} delay={index * 0.12}>
+              <CourseCard course={course} />
+            </ScrollReveal>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}

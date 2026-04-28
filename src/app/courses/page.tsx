@@ -11,14 +11,9 @@ export const metadata: Metadata = {
     "Browse internationally accredited courses at Tylos Human Development Center — Business Management, IT, Accounting and Finance, and English Language. All programs are 100% funded.",
 };
 
-interface Props {
-  searchParams: Promise<{ search?: string }>;
-}
-
-export default async function CoursesPage({ searchParams }: Props) {
-  const params = await searchParams;
+export default async function CoursesPage() {
   const allCourses = getCourses();
-  const initialSearch = params.search || "";
+  const initialSearch = "";
 
   return (
     <>

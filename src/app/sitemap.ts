@@ -1,6 +1,8 @@
 import { MetadataRoute } from "next";
 import { getCourses } from "@/data/courses";
 
+export const dynamic = "force-static";
+
 export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = "https://tylosthd.com";
   const courses = getCourses();

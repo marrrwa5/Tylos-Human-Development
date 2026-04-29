@@ -1,4 +1,4 @@
-import { Playfair_Display, Inter, Cairo } from "next/font/google";
+import { Playfair_Display, Inter, Lalezar, Noto_Sans_Arabic } from "next/font/google";
 
 export const playfair = Playfair_Display({
   subsets: ["latin"],
@@ -14,9 +14,16 @@ export const inter = Inter({
   weight: ["300", "400", "500", "600", "700"],
 });
 
-export const cairo = Cairo({
+export const lalezar = Lalezar({
   subsets: ["arabic", "latin"],
+  variable: "--font-arabic-heading",
+  display: "swap",
+  weight: ["400"],
+});
+
+export const notoSansArabic = Noto_Sans_Arabic({
+  subsets: ["arabic"],
   variable: "--font-arabic",
   display: "swap",
-  weight: ["300", "400", "500", "600", "700", "800"],
+  weight: ["300", "400", "500", "600", "700"],
 });

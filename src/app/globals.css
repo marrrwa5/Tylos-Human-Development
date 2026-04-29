@@ -220,12 +220,6 @@
 
 /* ─── RTL / Arabic overrides ──────────────────────────────── */
 [dir="rtl"] body,
-[dir="rtl"] h1,
-[dir="rtl"] h2,
-[dir="rtl"] h3,
-[dir="rtl"] h4,
-[dir="rtl"] h5,
-[dir="rtl"] h6,
 [dir="rtl"] p,
 [dir="rtl"] span,
 [dir="rtl"] a,
@@ -233,7 +227,20 @@
 [dir="rtl"] input,
 [dir="rtl"] textarea,
 [dir="rtl"] label,
-[dir="rtl"] li {
+[dir="rtl"] li,
+[dir="rtl"] td,
+[dir="rtl"] th {
   font-family: var(--font-arabic), system-ui, sans-serif;
   letter-spacing: 0;
+}
+
+[dir="rtl"] h1,
+[dir="rtl"] h2,
+[dir="rtl"] h3,
+[dir="rtl"] h4,
+[dir="rtl"] h5,
+[dir="rtl"] h6 {
+  font-family: var(--font-arabic-heading), var(--font-arabic), system-ui, sans-serif;
+  letter-spacing: 0;
+  font-weight: 700;
 }

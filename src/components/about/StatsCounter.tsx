@@ -2,13 +2,7 @@
 
 import { useEffect, useRef, useState } from "react";
 import { useInView } from "framer-motion";
-
-const stats = [
-  { value: 20, suffix: "+", label: "Years of Excellence", sub: "Est. 2002" },
-  { value: 1000, suffix: "+", label: "Graduates", sub: "Across different industries" },
-  { value: 13, suffix: "+", label: "Programs", sub: "Across multiple disciplines" },
-  { value: 4, suffix: "", label: "International Accreditations", sub: "NOCN, Cisco, IAB & more" },
-];
+import { useLanguage } from "@/context/LanguageContext";
 
 function Counter({ target, suffix }: { target: number; suffix: string }) {
   const [count, setCount] = useState(0);
@@ -38,6 +32,15 @@ function Counter({ target, suffix }: { target: number; suffix: string }) {
 }
 
 export default function StatsCounter() {
+  const { t } = useLanguage();
+
+  const stats = [
+    { value: 20, suffix: "+", label: t("Years of Excellence", "سنوات من التميز"), sub: t("Est. 2002", "تأسس عام 2002") },
+    { value: 1000, suffix: "+", label: t("Graduates", "خريج"), sub: t("Across different industries", "عبر مختلف القطاعات") },
+    { value: 13, suffix: "+", label: t("Programs", "برنامج"), sub: t("Across multiple disciplines", "في تخصصات متعددة") },
+    { value: 4, suffix: "", label: t("International Accreditations", "اعتماد دولي"), sub: "NOCN, Cisco, IAB & more" },
+  ];
+
   return (
     <section className="py-8 gradient-brand">
       <div className="container-wide">

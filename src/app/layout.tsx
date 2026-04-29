@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import { inter, cairo } from "@/lib/fonts";
+import { inter, lalezar, notoSansArabic } from "@/lib/fonts";
 import { LanguageProvider } from "@/context/LanguageContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -54,7 +54,7 @@ export default function RootLayout({
     <html
       lang="en"
       dir="ltr"
-      className={`${inter.variable} ${cairo.variable} h-full antialiased scroll-smooth`}
+      className={`${inter.variable} ${lalezar.variable} ${notoSansArabic.variable} h-full antialiased scroll-smooth`}
     >
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <LanguageProvider>

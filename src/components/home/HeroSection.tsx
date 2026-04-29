@@ -8,7 +8,7 @@ import Link from "next/link";
 import { useLanguage } from "@/context/LanguageContext";
 
 export default function HeroSection() {
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden -mt-[72px]">
 
@@ -100,8 +100,15 @@ export default function HeroSection() {
         Result: zero visible edge, zero colour mismatch.
       */}
       <div
-        className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block"
-        style={{
+        className={`absolute top-0 bottom-0 w-1/2 hidden lg:block ${isAr ? "left-0" : "right-0"}`}
+        style={isAr ? {
+          maskImage:
+            "linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to left, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
+          WebkitMaskImage:
+            "linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to left, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
+        } : {
           maskImage:
             "linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
           WebkitMaskImage:

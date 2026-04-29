@@ -4,7 +4,7 @@ import Image from "next/image";
 import Link from "next/link";
 import NavMenu from "./NavMenu";
 import MobileMenu from "./MobileMenu";
-import SearchBar from "./SearchBar";
+import LanguageToggle from "./LanguageToggle";
 import { useScrolled } from "@/hooks/useScrolled";
 
 export default function Header() {
@@ -36,10 +36,10 @@ export default function Header() {
             <NavMenu />
           </div>
 
-          {/* RIGHT: Search + Mobile */}
-          <div className="flex items-center gap-2 flex-shrink-0 pr-2">
+          {/* RIGHT: Language Toggle + Mobile */}
+          <div className="flex items-center gap-3 flex-shrink-0 pr-2">
             <div className="hidden md:block">
-              <SearchBar />
+              <LanguageToggle />
             </div>
             <MobileMenu />
           </div>

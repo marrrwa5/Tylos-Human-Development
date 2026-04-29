@@ -14,8 +14,8 @@ export default function CEOMessage() {
               <div className="relative">
                 <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl relative">
                   <Image
-                    src="/images/najeeb.png"
-                    alt="Najeeb Alsayed — Executive Manager, Tylos Human Development Center"
+                    src="/images/chairman.png"
+                    alt="Chairman — Tylos Human Development Center"
                     fill
                     className="object-cover object-top"
                   />

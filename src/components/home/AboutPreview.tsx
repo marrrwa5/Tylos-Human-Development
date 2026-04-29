@@ -94,9 +94,10 @@ export default function AboutPreview() {
                 </CTAButton>
 
                 <CTAButton
-                  href="/about#profile"
+                  href="/pdfs/company-profile.pdf"
                   variant="outline"
                   className="w-full justify-center border-white/30 text-white hover:bg-white hover:text-blue-dark"
+                  external
                 >
                   <Download className="mr-2 h-4 w-4" />
                   {t("Download Profile", "تحميل الملف التعريفي")}

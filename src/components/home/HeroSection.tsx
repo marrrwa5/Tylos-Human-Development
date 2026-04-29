@@ -10,10 +10,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function HeroSection() {
   const { t, isAr } = useLanguage();
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden -mt-[72px]">
-
-      {/* ── Base: solid deep navy ── */}
-      <div className="absolute inset-0 bg-[#020b13]" />
+    <section className="relative min-h-screen flex items-center overflow-hidden -mt-[72px] bg-[#020b13]">
 
       {/*
         ── Single smooth background gradient ──
@@ -124,12 +121,29 @@ export default function HeroSection() {
           className="object-cover object-center"
           priority
         />
-        {/* Gray2 overlay on top of the image */}
-        <Image
-          src="/images/gray2.png"
-          alt=""
-          fill
-          className="object-cover object-center mix-blend-multiply opacity-90"
+        {/*
+          CSS-only color-grade overlay — replaces gray2.png.
+          Rendered immediately with zero extra network request.
+          mix-blend-multiply darkens and desaturates the image
+          so it integrates with the dark navy background.
+        */}
+        <div
+          className="absolute inset-0 mix-blend-multiply"
+          style={{ background: "rgba(28,28,60,0.55)" }}
+          aria-hidden="true"
+        />
+        {/*
+          Inner edge-fade gradient — ensures the blending edge
+          is always present (pure CSS) even before the image
+          finishes loading, eliminating any hard-edge flash.
+        */}
+        <div
+          className="absolute inset-0"
+          style={{
+            background: isAr
+              ? "linear-gradient(to left, transparent 42%, rgba(2,11,19,0.7) 70%, #020b13 100%)"
+              : "linear-gradient(to right, transparent 42%, rgba(2,11,19,0.7) 70%, #020b13 100%)",
+          }}
           aria-hidden="true"
         />
       </div>

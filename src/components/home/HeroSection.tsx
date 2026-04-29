@@ -103,9 +103,11 @@ export default function HeroSection() {
         className="absolute right-0 top-0 bottom-0 w-1/2 hidden lg:block"
         style={{
           maskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
+            "linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
           WebkitMaskImage:
-            "linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
+            "linear-gradient(to top, transparent 0%, black 22%), linear-gradient(to right, transparent 0%, rgba(0,0,0,0.25) 14%, rgba(0,0,0,0.65) 28%, rgba(0,0,0,0.90) 42%, black 58%)",
+          maskComposite: "intersect",
+          WebkitMaskComposite: "source-in",
         }}
       >
         <Image

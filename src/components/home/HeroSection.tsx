@@ -109,11 +109,19 @@ export default function HeroSection() {
         }}
       >
         <Image
-          src="/images/three-models.jpg"
-          alt="Professionals at Tylos Human Development Center"
+          src="/images/man2.png"
+          alt="Professional at Tylos Human Development Center"
           fill
-          className="object-cover object-top"
+          className="object-cover object-center"
           priority
+        />
+        {/* Gray2 overlay on top of the image */}
+        <Image
+          src="/images/gray2.png"
+          alt=""
+          fill
+          className="object-cover object-center mix-blend-multiply opacity-90"
+          aria-hidden="true"
         />
       </div>
 

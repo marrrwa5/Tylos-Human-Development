@@ -2,6 +2,14 @@
 @import "tw-animate-css";
 @import "shadcn/tailwind.css";
 
+@font-face {
+  font-family: "BahijTheSans";
+  src: url("/fonts/BahijTheSansArabic-Plain.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 @custom-variant dark (&:is(.dark *));
 
 /* ─── Brand Keyframes ─────────────────────────────────────── */
@@ -235,24 +243,25 @@
 [dir="rtl"] li,
 [dir="rtl"] td,
 [dir="rtl"] th {
-  font-family: var(--font-arabic), system-ui, sans-serif;
+  font-family: "BahijTheSans", var(--font-arabic), system-ui, sans-serif;
   letter-spacing: 0;
 }
 
+/* Bold headings use Lalezar (closest to Bahij Myriad Arabic Bold) */
 [dir="rtl"] h1,
 [dir="rtl"] h2,
 [dir="rtl"] h3,
 [dir="rtl"] h4,
 [dir="rtl"] h5,
 [dir="rtl"] h6 {
-  font-family: var(--font-arabic-heading), var(--font-arabic), system-ui, sans-serif;
+  font-family: var(--font-arabic-heading), "BahijTheSans", system-ui, sans-serif;
   letter-spacing: 0;
   font-weight: 700;
 }
 
-/* Arabic nav links use Lalezar for premium bold look */
+/* Arabic nav: Bahij TheSans Plain (regular weight) */
 [dir="rtl"] nav a {
-  font-family: var(--font-arabic-heading), var(--font-arabic), system-ui, sans-serif;
-  font-weight: 700;
+  font-family: "BahijTheSans", var(--font-arabic), system-ui, sans-serif;
+  font-weight: 400;
   letter-spacing: 0;
 }

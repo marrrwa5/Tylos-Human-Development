@@ -118,20 +118,20 @@ export default function CourseAdvisor() {
               </div>
 
               <div className="flex-shrink-0 flex flex-col gap-3 w-full lg:w-auto">
-                <p className={`text-white/50 text-xs uppercase tracking-wider font-semibold mb-1 text-center ${isAr ? "lg:text-right" : "lg:text-left"}`}>
+                <p className={`text-xs uppercase tracking-wider font-semibold mb-1 text-center ${isAr ? "lg:text-right text-white font-bold text-sm" : "text-white/50 lg:text-left"}`}>
                   {t("Prefer to speak with someone?", "تفضل التحدث مع شخص؟")}
                 </p>
                 <a href="tel:+97317626484" className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 text-white font-medium text-sm">
                   <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0"><Phone className="h-4 w-4 text-white" /></div>
-                  {t("Call an Advisor", "اتصل بمستشار")}
+                  {t("Call an Advisor", "أفضل الاتصال")}
                 </a>
                 <a href="https://api.whatsapp.com/send?phone=97334655220" target="_blank" rel="noopener noreferrer" className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 text-white font-medium text-sm">
                   <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0"><MessageCircle className="h-4 w-4 text-white" /></div>
-                  {t("WhatsApp an Advisor", "واتساب مع مستشار")}
+                  {t("WhatsApp an Advisor", "أفضل رسالة واتساب")}
                 </a>
                 <a href="mailto:info@thd.bh" className="flex items-center gap-3 px-5 py-3 rounded-xl bg-white/10 border border-white/20 hover:bg-white/20 transition-all duration-200 text-white font-medium text-sm">
                   <div className="w-8 h-8 rounded-full bg-white/15 flex items-center justify-center flex-shrink-0"><Mail className="h-4 w-4 text-white" /></div>
-                  {t("Email an Advisor", "راسل مستشاراً")}
+                  {t("Email an Advisor", "أفضل الإيميل")}
                 </a>
               </div>
             </div>

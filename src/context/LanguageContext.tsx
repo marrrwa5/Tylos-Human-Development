@@ -21,8 +21,15 @@ const LanguageContext = createContext<LanguageContextValue>({
 export function LanguageProvider({ children }: { children: ReactNode }) {
   const [lang, setLangState] = useState<Lang>("en");
 
+  // Load saved language on mount
+  useEffect(() => {
+    const saved = localStorage.getItem("tylos-lang") as Lang | null;
+    if (saved === "ar" || saved === "en") setLangState(saved);
+  }, []);
+
   const setLang = (l: Lang) => {
     setLangState(l);
+    localStorage.setItem("tylos-lang", l);
   };
 
   useEffect(() => {

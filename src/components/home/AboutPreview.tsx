@@ -120,12 +120,12 @@ export default function AboutPreview() {
               </div>
 
               {/* Floating 100% Funded stat */}
-              <div className="absolute -bottom-5 -right-5 bg-[#0d1e35] border border-white/10 rounded-xl shadow-xl p-4">
-                <div className="flex items-baseline gap-0.5">
+              <div className="absolute -bottom-5 -right-5 bg-[#0d1e35] border border-white/10 rounded-xl shadow-xl p-4 text-center">
+                <div className="flex items-baseline gap-0.5 justify-center">
                   <span className="text-turquoise font-bold text-2xl">100</span>
                   <span className="text-white font-bold text-xl">%</span>
                 </div>
-                <div className="text-white/50 text-xs mt-0.5">{t("Funded courses available", "دورات ممولة متاحة")}</div>
+                <div className="text-white/50 text-xs mt-0.5 text-center">{t("Funded courses available", "دورات ممولة متاحة")}</div>
               </div>
             </div>
           </ScrollReveal>

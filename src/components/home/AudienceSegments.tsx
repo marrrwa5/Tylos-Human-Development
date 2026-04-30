@@ -30,7 +30,7 @@ const segments = [
     title: "Level Up at Work",
     titleAr: "طوّر مستواك في العمل",
     subtitle: "Private Sector Employees",
-    subtitleAr: "موظفو القطاع الخاص",
+    subtitleAr: "موظفين القطاع الخاص",
     description:
       "Upskill and advance within your current organization. Gain new competencies, earn higher qualifications, and unlock new career opportunities.",
     descriptionAr:
@@ -82,10 +82,16 @@ export default function AudienceSegments() {
             title={t("Who Is This For?", "نخدم مختلف الفئات المهنية")}
             subtitle={t(
               "Whether you're just starting out, growing professionally, or developing your entire organization, we have a solution designed for you.",
-              "سواء كنت في بداية مسيرتك، أو تسعى للنمو المهني، أو تطوير مؤسستك بأكملها، لدينا الحل المناسب لك."
+              ""
             )}
             light
           />
+          {isAr && (
+            <p className="text-white/80 text-base md:text-lg leading-relaxed text-center mt-2 max-w-2xl mx-auto">
+              سواء كنت في بداية مسيرتك، أو تسعى للنمو المهني، أو تطوير مؤسستك بأكملها،<br />
+              لدينا الحل المناسب لك.
+            </p>
+          )}
         </ScrollReveal>
 
         <motion.div

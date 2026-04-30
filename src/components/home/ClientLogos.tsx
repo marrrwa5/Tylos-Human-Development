@@ -31,30 +31,20 @@ const clients = [
 
 export default function ClientLogos() {
   const { t, isAr } = useLanguage();
-  const displayed = [...clients, ...clients, ...clients];
 
   return (
     <section className="py-14 bg-[#0d1e35] border-y border-white/10 overflow-hidden">
       <div className="container-wide">
-        <p className="text-center text-xs font-semibold uppercase tracking-widest text-white/40 mb-10">
+        <p className={`text-center font-bold text-white mb-10 ${isAr ? "text-xl" : "text-sm uppercase tracking-widest"}`}>
           {t("Trusted by Leaders Across Industries", "موثوق به من قبل قادة الصناعة")}
         </p>
       </div>
 
-      {/* Full-width marquee — not constrained to container */}
-      <div className="[mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div
-          className="flex gap-6 items-center"
-          style={{
-            animation: "marquee-infinite 40s linear infinite",
-            width: "max-content",
-          }}
-        >
-          {displayed.map((client, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10 hover:border-turquoise/30 hover:bg-white/12 transition-all duration-200"
-            >
+      {/* Full-width seamless infinite marquee */}
+      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
+        <div className="flex gap-6 items-center animate-marquee w-max">
+          {[...clients, ...clients].map((client, i) => (
+            <div key={i} className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10 hover:border-turquoise/30 hover:bg-white/12 transition-all duration-200">
               <span className="text-white/65 font-medium text-sm whitespace-nowrap">
                 {isAr ? client.nameAr : client.name}
               </span>

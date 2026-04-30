@@ -12,13 +12,13 @@ const accreditations = [
 ];
 
 export default function AccreditationLogos() {
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
 
   return (
     <section className="py-16 bg-white border-y border-gray-100">
       <div className="container-wide">
         <ScrollReveal>
-          <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-12">
+          <p className={`text-center font-semibold text-gray-400 mb-12 ${isAr ? "text-base tracking-normal" : "text-xs uppercase tracking-widest"}`}>
             {t("Internationally Accredited & Recognized By", "معتمد و معترف به دوليًا من قبل")}
           </p>
         </ScrollReveal>

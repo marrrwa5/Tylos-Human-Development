@@ -1,7 +1,8 @@
 "use client";
 
 import Image from "next/image";
-import { Quote } from "lucide-react";
+import { Quote, Sparkles } from "lucide-react";
+import { motion } from "framer-motion";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -12,7 +13,7 @@ const members = [
     nameAr: "نجيب السيد",
     titleEn: "Executive Manager",
     titleAr: "المدير التنفيذي",
-    accentColor: "turquoise" as const,
+    accentColor: "#00B3A4",
     messageEn: [
       "Since Tylos Human Development Center opened its doors in 2002, our purpose has remained unchanged: to help individuals grow, and to help organizations perform better through the power of quality training.",
       "Over the years we have had the privilege of working with thousands of professionals across Bahrain — from fresh graduates entering the workforce for the first time, to experienced managers seeking to sharpen their edge. Every success story strengthens our commitment to what we do.",
@@ -30,7 +31,7 @@ const members = [
     nameAr: "عادل",
     titleEn: "Director",
     titleAr: "المدير",
-    accentColor: "blue" as const,
+    accentColor: "#0057A8",
     messageEn: [
       "At Tylos, we believe that great training goes beyond knowledge transfer. It is about building confidence, opening doors, and creating lasting change in people's careers and lives.",
       "I am proud of the dedicated team we have built and the reputation we have earned across Bahrain's business community. Our commitment to quality, accreditation, and measurable outcomes sets us apart.",
@@ -48,70 +49,125 @@ export default function CEOMessage() {
   const { t, isAr } = useLanguage();
 
   return (
-    <section className="section-padding bg-[#f8fafc]">
-      <div className="container-wide">
+    <section className="section-padding bg-[#020b13] relative overflow-hidden">
+      {/* Background decoration */}
+      <div className="absolute inset-0 pointer-events-none">
+        <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(0,179,164,0.08) 0%, transparent 70%)" }} />
+        <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full"
+          style={{ background: "radial-gradient(circle, rgba(0,87,168,0.08) 0%, transparent 70%)" }} />
+        <div className="absolute inset-0"
+          style={{
+            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,179,164,0.06) 1px, transparent 0)",
+            backgroundSize: "40px 40px",
+          }} />
+      </div>
+
+      <div className="relative container-wide">
+        {/* Section heading */}
         <ScrollReveal>
-          <div className="text-center mb-14">
-            <div className="w-10 h-1 rounded-full bg-turquoise mx-auto mb-4" />
-            <h2 className="font-bold text-3xl md:text-4xl text-gray-900">
+          <div className="text-center mb-16">
+            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-turquoise/10 border border-turquoise/20 text-turquoise text-xs font-semibold uppercase tracking-widest mb-5">
+              <Sparkles className="h-3.5 w-3.5" />
+              {t("Leadership", "القيادة")}
+            </div>
+            <h2 className="font-bold text-3xl md:text-4xl text-white">
               {t("A Message from Our Leadership", "رسالة من قيادتنا")}
             </h2>
-            <p className="text-gray-400 text-sm mt-2 max-w-lg mx-auto">
+            <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
               {t("The vision and values behind Tylos Human Development Center.", "الرؤية والقيم وراء مركز تايلوس للتنمية البشرية.")}
             </p>
           </div>
         </ScrollReveal>
 
+        {/* Cards */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {members.map((member, i) => {
-            const isTurquoise = member.accentColor === "turquoise";
-            return (
-              <ScrollReveal key={member.nameEn} delay={i * 0.15}>
-                <div className={`relative bg-white rounded-3xl shadow-lg border overflow-hidden h-full ${
-                  isTurquoise ? "border-turquoise/20" : "border-blue-brand/20"
-                }`}>
-                  {/* Top accent bar */}
-                  <div className={`h-1.5 w-full ${isTurquoise ? "bg-turquoise" : "bg-blue-brand"}`} />
+          {members.map((member, i) => (
+            <motion.div
+              key={member.nameEn}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: i * 0.2 }}
+            >
+              <div className="relative group h-full">
+                {/* Glow on hover */}
+                <div
+                  className="absolute -inset-px rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 blur-sm"
+                  style={{ background: `linear-gradient(135deg, ${member.accentColor}40, transparent)` }}
+                />
 
-                  <div className="p-8">
-                    {/* Header: circle photo + name */}
-                    <div className="flex items-center gap-5 mb-6">
-                      <div className={`relative flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-4 shadow-xl ${
-                        isTurquoise ? "ring-turquoise/40" : "ring-blue-brand/40"
-                      }`}>
-                        <Image
-                          src={member.image}
-                          alt={isAr ? member.nameAr : member.nameEn}
-                          width={80}
-                          height={80}
-                          className="w-full h-full object-cover object-[center_20%]"
-                        />
+                <div className="relative bg-white/[0.04] border border-white/10 rounded-3xl p-8 h-full group-hover:border-white/20 transition-all duration-300">
+                  {/* Quote icon */}
+                  <Quote className="absolute top-6 right-6 h-12 w-12 opacity-[0.06] text-white" />
+
+                  {/* Header */}
+                  <div className="flex items-center gap-5 mb-8">
+                    {/* Circle photo with colored ring */}
+                    <motion.div
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                      className="relative flex-shrink-0"
+                    >
+                      <div
+                        className="w-20 h-20 rounded-full p-[3px]"
+                        style={{ background: `linear-gradient(135deg, ${member.accentColor}, transparent 60%)` }}
+                      >
+                        <div className="w-full h-full rounded-full overflow-hidden bg-[#020b13]">
+                          <Image
+                            src={member.image}
+                            alt={isAr ? member.nameAr : member.nameEn}
+                            width={80}
+                            height={80}
+                            className="w-full h-full object-cover object-[center_15%]"
+                          />
+                        </div>
                       </div>
-                      <div>
-                        <h3 className={`font-bold text-xl ${isTurquoise ? "text-turquoise" : "text-blue-brand"}`}>
-                          {isAr ? member.nameAr : member.nameEn}
-                        </h3>
-                        <p className="text-gray-400 text-sm mt-0.5">
-                          {isAr ? member.titleAr : member.titleEn}
-                        </p>
-                        <div className={`w-8 h-0.5 rounded-full mt-2 ${isTurquoise ? "bg-turquoise" : "bg-blue-brand"}`} />
+                      {/* Online dot */}
+                      <div
+                        className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[#020b13]"
+                        style={{ backgroundColor: member.accentColor }}
+                      />
+                    </motion.div>
+
+                    <div>
+                      <h3 className="font-bold text-white text-xl leading-tight">
+                        {isAr ? member.nameAr : member.nameEn}
+                      </h3>
+                      <p className="text-sm mt-1" style={{ color: member.accentColor }}>
+                        {isAr ? member.titleAr : member.titleEn}
+                      </p>
+                      <div className="mt-2 flex items-center gap-1">
+                        {[...Array(3)].map((_, j) => (
+                          <div key={j} className="w-1 h-1 rounded-full" style={{ backgroundColor: member.accentColor, opacity: 1 - j * 0.3 }} />
+                        ))}
                       </div>
-                    </div>
-
-                    {/* Quote icon */}
-                    <Quote className={`h-8 w-8 mb-4 opacity-20 ${isTurquoise ? "text-turquoise" : "text-blue-brand"}`} />
-
-                    {/* Message */}
-                    <div className="space-y-3 text-gray-500 text-sm leading-relaxed">
-                      {(isAr ? member.messageAr : member.messageEn).map((para, j) => (
-                        <p key={j}>{para}</p>
-                      ))}
                     </div>
                   </div>
+
+                  {/* Message paragraphs */}
+                  <div className="space-y-4">
+                    {(isAr ? member.messageAr : member.messageEn).map((para, j) => (
+                      <motion.p
+                        key={j}
+                        initial={{ opacity: 0, x: isAr ? 20 : -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.5, delay: i * 0.2 + j * 0.1 }}
+                        className="text-white/65 text-sm leading-relaxed"
+                      >
+                        {para}
+                      </motion.p>
+                    ))}
+                  </div>
+
+                  {/* Bottom accent line */}
+                  <div className="mt-8 h-px w-full"
+                    style={{ background: `linear-gradient(to right, ${member.accentColor}60, transparent)` }} />
                 </div>
-              </ScrollReveal>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
       </div>
     </section>

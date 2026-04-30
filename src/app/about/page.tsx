@@ -67,7 +67,6 @@ export default function AboutPage() {
               titleAr="عن مركز تايلوس للتنمية البشرية"
               subtitle="Dedicated to empowering individuals and organizations through internationally accredited professional training."
               subtitleAr="ملتزمون بتمكين الأفراد والمؤسسات من خلال التدريب المهني المعتمد دولياً."
-              pills={["Est. 2002", "NOCN Accredited", "Cisco Partner", "IAB Certified", "100% Funded"]}
             />
             <div className="mt-6">
               <CTAButton href="/pdfs/company-profile.pdf" variant="primary" size="lg" external>

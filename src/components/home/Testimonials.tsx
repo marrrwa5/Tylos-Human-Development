@@ -91,7 +91,7 @@ export default function Testimonials() {
         <div className="reviews-track px-3">
           {items.map((review, i) => (
             <div key={i} className="review-card relative bg-white/5 rounded-2xl border border-white/10 p-6 flex flex-col gap-4 hover:border-turquoise/30 transition-colors duration-300">
-              <Quote className={`absolute top-4 h-8 w-8 text-turquoise/20 ${isAr ? "left-4" : "right-4"}`} />
+              <Quote className="absolute top-4 right-4 h-8 w-8 text-turquoise/20" />
               <Stars rating={review.rating} />
               <blockquote className="text-white/80 text-sm leading-relaxed flex-1 italic">
                 &ldquo;{isAr && review.quoteAr ? review.quoteAr : review.quote}&rdquo;

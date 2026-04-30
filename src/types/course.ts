@@ -19,6 +19,7 @@ export interface Course {
   language: "English" | "Arabic" | "Bilingual";
   level: string;
   targetAudience: string[];
+  targetAudienceAr?: string[];
   price: number | null;
   isFunded: boolean;
   fundingBody: string | null;
@@ -26,9 +27,14 @@ export interface Course {
   certificateType: string;
   accreditationBodies: string[];
   prerequisites: string[];
+  prerequisitesAr?: string[];
   objectives: string[];
+  objectivesAr?: string[];
   careerOutcomes?: string[];
+  careerOutcomesAr?: string[];
   assessmentMethod?: string;
+  assessmentMethodAr?: string;
+  scheduleAr?: string;
   brochureUrl: string | null;
   isFeatured: boolean;
   isUpcoming: boolean;

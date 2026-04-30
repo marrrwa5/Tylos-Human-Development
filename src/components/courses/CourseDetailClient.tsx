@@ -126,7 +126,7 @@ export default function CourseDetailClient({ course }: Props) {
                   <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[
                       { label: t("Duration", "المدة"), value: course.duration },
-                      { label: t("Language", "اللغة"), value: course.language },
+                      { label: t("Language", "اللغة"), value: isAr ? (course.language === "English" ? "إنجليزي" : course.language === "Arabic" ? "عربي" : "ثنائي اللغة") : course.language },
                       { label: t("Level", "المستوى"), value: course.level },
                       { label: t("Start Date", "تاريخ البدء"), value: startDateShort },
                     ].map(({ label, value }) => (
@@ -150,7 +150,7 @@ export default function CourseDetailClient({ course }: Props) {
                     {t("Upon successful completion of this programme, participants will be able to:", "عند الانتهاء بنجاح من هذا البرنامج، سيكون المشاركون قادرين على:")}
                   </p>
                   <ul className="space-y-3">
-                    {course.objectives.map((obj, i) => (
+                    {(isAr && course.objectivesAr ? course.objectivesAr : course.objectives).map((obj, i) => (
                       <li key={i} className="flex items-start gap-3">
                         <div className="w-6 h-6 rounded-full bg-turquoise/10 flex items-center justify-center flex-shrink-0 mt-0.5">
                           <span className="text-turquoise text-xs font-bold">{i + 1}</span>
@@ -171,7 +171,7 @@ export default function CourseDetailClient({ course }: Props) {
                   </div>
                   <p className="text-gray-400 text-sm mb-5">{t("This programme is designed for:", "تم تصميم هذا البرنامج لـ:")}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                    {course.targetAudience.map((ta) => (
+                    {(isAr && course.targetAudienceAr ? course.targetAudienceAr : course.targetAudience).map((ta) => (
                       <div key={ta} className="flex items-start gap-3 p-4 rounded-xl bg-turquoise/5 border border-turquoise/10">
                         <ChevronRight className={`h-4 w-4 text-turquoise flex-shrink-0 mt-0.5 ${isAr ? "rotate-180" : ""}`} />
                         <span className="text-gray-700 text-sm leading-snug">{ta}</span>
@@ -190,7 +190,7 @@ export default function CourseDetailClient({ course }: Props) {
                       <h2 className="font-bold text-xl text-gray-900">{t("Entry Requirements", "متطلبات القبول")}</h2>
                     </div>
                     <ul className="space-y-3">
-                      {course.prerequisites.map((pre, i) => (
+                      {(isAr && course.prerequisitesAr ? course.prerequisitesAr : course.prerequisites).map((pre, i) => (
                         <li key={i} className="flex items-start gap-3 text-sm text-gray-600">
                           <div className="w-1.5 h-1.5 rounded-full bg-blue-brand flex-shrink-0 mt-2" />
                           {pre}
@@ -209,7 +209,7 @@ export default function CourseDetailClient({ course }: Props) {
                       <div className="w-9 h-9 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0"><BookOpen className="h-5 w-5 text-turquoise" /></div>
                       <h2 className="font-bold text-xl text-gray-900">{t("Assessment Method", "طريقة التقييم")}</h2>
                     </div>
-                    <p className="text-gray-600 text-sm leading-relaxed">{course.assessmentMethod}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{isAr && course.assessmentMethodAr ? course.assessmentMethodAr : course.assessmentMethod}</p>
                   </div>
                 </ScrollReveal>
               )}
@@ -226,7 +226,7 @@ export default function CourseDetailClient({ course }: Props) {
                       {t("Graduates of this programme are prepared for roles such as:", "خريجو هذا البرنامج مؤهلون لأدوار مثل:")}
                     </p>
                     <div className="flex flex-wrap gap-3">
-                      {course.careerOutcomes.map((outcome) => (
+                      {(isAr && course.careerOutcomesAr ? course.careerOutcomesAr : course.careerOutcomes).map((outcome) => (
                         <div key={outcome} className="flex items-center gap-2 bg-white/8 border border-white/12 rounded-full px-4 py-2 text-white/80 text-sm">
                           <div className="w-1.5 h-1.5 rounded-full bg-turquoise" />
                           {outcome}
@@ -301,7 +301,7 @@ export default function CourseDetailClient({ course }: Props) {
                         { Icon: Calendar, label: t("Start Date", "تاريخ البدء"), value: startDate },
                         { Icon: Globe, label: t("Language", "اللغة"), value: course.language },
                         { Icon: BookOpen, label: t("Level", "المستوى"), value: course.level },
-                        { Icon: Target, label: t("Schedule", "الجدول"), value: course.schedule },
+                        { Icon: Target, label: t("Schedule", "الجدول"), value: isAr && course.scheduleAr ? course.scheduleAr : course.schedule },
                       ].map(({ Icon, label, value }) => (
                         <div key={label} className="flex items-start gap-3 text-sm">
                           <Icon className="h-4 w-4 text-turquoise flex-shrink-0 mt-0.5" />

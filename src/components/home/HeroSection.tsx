@@ -170,7 +170,9 @@ export default function HeroSection() {
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
           >
-            {t("The First Step", "الخطوة الأولى")}<br />
+            <span style={isAr ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 400 } : {}}>
+              {t("The First Step", "الخطوة الأولى")}
+            </span><br />
             <span className="text-gradient-brand">{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
           </motion.h1>
 

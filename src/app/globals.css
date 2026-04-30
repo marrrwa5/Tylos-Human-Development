@@ -237,6 +237,12 @@
   100% { transform: translateX(-33.333%); }
 }
 
+/* Client ticker: scrolls exactly one-third of the tripled list, loops perfectly */
+@keyframes ticker-scroll {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
 /* ─── RTL / Arabic overrides ──────────────────────────────── */
 [dir="rtl"] body,
 [dir="rtl"] p,

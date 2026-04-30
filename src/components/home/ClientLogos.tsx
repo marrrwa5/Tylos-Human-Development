@@ -34,18 +34,37 @@ export default function ClientLogos() {
 
   return (
     <section className="py-14 bg-[#0d1e35] border-y border-white/10 overflow-hidden">
-      <div className="container-wide">
-        <p className={`text-center font-bold text-white mb-10 ${isAr ? "text-xl" : "text-sm uppercase tracking-widest"}`}>
+      {/* Headline */}
+      <div className="container-wide mb-10">
+        <p className={`text-center font-bold text-white ${isAr ? "text-3xl md:text-4xl" : "text-lg uppercase tracking-widest"}`}>
           {t("Trusted by Leaders Across Industries", "موثوق به من قبل")}
         </p>
       </div>
 
-      {/* Full-width seamless infinite marquee */}
-      <div className="overflow-hidden [mask-image:linear-gradient(to_right,transparent,black_8%,black_92%,transparent)]">
-        <div className="flex gap-6 items-center animate-marquee w-max">
-          {[...clients, ...clients].map((client, i) => (
-            <div key={i} className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10 hover:border-turquoise/30 hover:bg-white/12 transition-all duration-200">
-              <span className="text-white/65 font-medium text-sm whitespace-nowrap">
+      {/* Infinite ticker — uses CSS animation, never stops, no JS */}
+      <div
+        className="overflow-hidden"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+        }}
+      >
+        <div
+          style={{
+            display: "flex",
+            gap: "1.5rem",
+            width: "max-content",
+            animation: "ticker-scroll 50s linear infinite",
+          }}
+        >
+          {/* Triple the items so the seam is never visible */}
+          {[...clients, ...clients, ...clients].map((client, i) => (
+            <div
+              key={i}
+              className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10"
+              style={{ whiteSpace: "nowrap" }}
+            >
+              <span className="text-white/70 font-medium text-sm">
                 {isAr ? client.nameAr : client.name}
               </span>
             </div>

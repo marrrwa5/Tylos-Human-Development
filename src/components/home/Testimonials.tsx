@@ -63,17 +63,19 @@ export default function Testimonials() {
 
       <div className="container-wide">
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div className="mb-12">
             <SectionHeading
               title={t("What Our Graduates Said", "ماذا قال متدربونا")}
               subtitle={t("Real stories from professionals who transformed their careers at Tylos.", "قصص حقيقية من محترفين غيّروا مساراتهم المهنية في تايلوس.")}
               light
-              centered={false}
+              centered
             />
-            <CTAButton onClick={() => setFeedbackOpen(true)} variant="outline" size="sm" className="flex-shrink-0 border-white/25 text-white hover:bg-white hover:text-blue-dark">
-              <MessageSquarePlus className="h-4 w-4 mr-1.5" />
-              {t("Share Your Feedback", "شاركنا رأيك")}
-            </CTAButton>
+            <div className="flex justify-center mt-6">
+              <CTAButton onClick={() => setFeedbackOpen(true)} variant="outline" size="sm" className="border-white/25 text-white hover:bg-white hover:text-blue-dark">
+                <MessageSquarePlus className="h-4 w-4 mr-1.5" />
+                {t("Share Your Feedback", "شاركنا رأيك")}
+              </CTAButton>
+            </div>
           </div>
         </ScrollReveal>
       </div>

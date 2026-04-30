@@ -55,7 +55,24 @@ export default function RootLayout({
       lang="en"
       dir="ltr"
       className={`${inter.variable} ${lalezar.variable} ${notoSansArabic.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
+      {/* Blocking script — runs before any paint, prevents Arabic/English flash */}
+      <head>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              try {
+                var lang = localStorage.getItem('tylos-lang');
+                if (lang === 'ar') {
+                  document.documentElement.setAttribute('dir', 'rtl');
+                  document.documentElement.setAttribute('lang', 'ar');
+                }
+              } catch(e) {}
+            `,
+          }}
+        />
+      </head>
       <body className="min-h-full flex flex-col bg-white text-gray-900">
         <LanguageProvider>
           <Header />

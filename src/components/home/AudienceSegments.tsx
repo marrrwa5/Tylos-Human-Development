@@ -79,7 +79,7 @@ export default function AudienceSegments() {
       <div className="container-wide">
         <ScrollReveal>
           <SectionHeading
-            title={t("Who Is This For?", "لمن هذا البرنامج؟")}
+            title={t("Who Is This For?", "نخدم مختلف الفئات المهنية")}
             subtitle={t(
               "Whether you're just starting out, growing professionally, or developing your entire organization, we have a solution designed for you.",
               "سواء كنت في بداية مسيرتك، أو تسعى للنمو المهني، أو تطوير مؤسستك بأكملها، لدينا الحل المناسب لك."

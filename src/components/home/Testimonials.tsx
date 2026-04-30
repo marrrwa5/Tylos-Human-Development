@@ -24,7 +24,7 @@ function Stars({ rating }: { rating: number }) {
 }
 
 export default function Testimonials() {
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
   const testimonials = getTestimonials();
   const n = testimonials.length;
   const [current, setCurrent] = useState(0);
@@ -60,7 +60,7 @@ export default function Testimonials() {
       <div className="container-wide">
         <ScrollReveal>
           <SectionHeading
-            title={t("What Our Graduates Said", "ماذا قال خريجونا")}
+            title={t("What Our Graduates Said", "ماذا قال متدربونا")}
             subtitle={t("Real stories from professionals who transformed their careers at Tylos.", "قصص حقيقية من محترفين غيّروا مساراتهم المهنية في تايلوس.")}
             light
           />
@@ -84,13 +84,13 @@ export default function Testimonials() {
                 <div key={`${t2.id}-${i}`} className="relative bg-white/5 rounded-2xl border border-white/10 p-6 flex flex-col gap-4 hover:border-turquoise/20 transition-colors duration-300">
                   <Quote className="absolute top-4 right-4 h-10 w-10 text-turquoise/10" />
                   <Stars rating={t2.rating} />
-                  <blockquote className="text-white/80 text-sm leading-relaxed flex-1 italic">&ldquo;{t2.quote}&rdquo;</blockquote>
+                  <blockquote className="text-white/80 text-sm leading-relaxed flex-1 italic">&ldquo;{isAr && t2.quoteAr ? t2.quoteAr : t2.quote}&rdquo;</blockquote>
                   <div className="flex items-center gap-3 pt-4 border-t border-white/10">
                     <div className="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white font-bold text-base flex-shrink-0">
-                      {t2.name.charAt(0)}
+                      {(isAr && t2.nameAr ? t2.nameAr : t2.name).charAt(0)}
                     </div>
                     <div>
-                      <div className="font-semibold text-white text-sm">{t2.name}</div>
+                      <div className="font-semibold text-white text-sm">{isAr && t2.nameAr ? t2.nameAr : t2.name}</div>
                       <div className="text-xs text-white/45">{t2.role} · {t2.company}</div>
                     </div>
                   </div>

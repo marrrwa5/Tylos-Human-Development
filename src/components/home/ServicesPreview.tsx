@@ -65,16 +65,16 @@ export default function ServicesPreview() {
     <section className="section-padding bg-[#07111e]">
       <div className="container-wide">
         <ScrollReveal>
-          <div className="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-12">
+          <div className={`flex flex-col gap-4 mb-12 ${isAr ? "items-center text-center" : "md:flex-row md:items-end md:justify-between"}`}>
             <SectionHeading
-              title={t("What We Offer", "ما نقدمه")}
+              title={t("What We Offer", "خدماتنا")}
               subtitle={t("Beyond training, a full ecosystem of support services to help you succeed.", "ما وراء التدريب، منظومة متكاملة من الخدمات الداعمة لمساعدتك على النجاح.")}
-              centered={false}
+              centered={isAr}
               light
             />
             <CTAButton href="/services" variant="outline" size="sm" className="flex-shrink-0 border-white/30 text-white hover:bg-white hover:text-blue-dark">
               {t("All Services", "جميع الخدمات")}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className={`h-4 w-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
             </CTAButton>
           </div>
         </ScrollReveal>

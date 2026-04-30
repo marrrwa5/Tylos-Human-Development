@@ -1,5 +1,8 @@
+"use client";
+
 import Image from "next/image";
 import ScrollReveal from "@/components/shared/ScrollReveal";
+import { useLanguage } from "@/context/LanguageContext";
 
 const accreditations = [
   { name: "IAB", file: "/images/iab.png" },
@@ -9,12 +12,14 @@ const accreditations = [
 ];
 
 export default function AccreditationLogos() {
+  const { t } = useLanguage();
+
   return (
     <section className="py-16 bg-white border-y border-gray-100">
       <div className="container-wide">
         <ScrollReveal>
           <p className="text-center text-xs font-semibold uppercase tracking-widest text-gray-400 mb-12">
-            Internationally Accredited &amp; Recognized By
+            {t("Internationally Accredited & Recognized By", "معتمد و معترف به دوليًا من قبل")}
           </p>
         </ScrollReveal>
 

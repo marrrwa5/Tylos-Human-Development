@@ -218,6 +218,11 @@
   }
 }
 
+@keyframes marquee-infinite {
+  0%   { transform: translateX(0); }
+  100% { transform: translateX(-33.333%); }
+}
+
 /* ─── RTL / Arabic overrides ──────────────────────────────── */
 [dir="rtl"] body,
 [dir="rtl"] p,
@@ -243,4 +248,11 @@
   font-family: var(--font-arabic-heading), var(--font-arabic), system-ui, sans-serif;
   letter-spacing: 0;
   font-weight: 700;
+}
+
+/* Arabic nav links use Lalezar for premium bold look */
+[dir="rtl"] nav a {
+  font-family: var(--font-arabic-heading), var(--font-arabic), system-ui, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0;
 }

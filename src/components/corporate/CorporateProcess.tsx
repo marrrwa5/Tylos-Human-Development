@@ -76,7 +76,7 @@ export default function CorporateProcess() {
         </motion.div>
 
         {/* Steps grid */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0 relative">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-0 relative items-stretch">
           {/* Connecting line — desktop */}
           <div className="hidden lg:block absolute top-10 left-[10%] right-[10%] h-px"
             style={{ background: "linear-gradient(to right, transparent, rgba(0,179,164,0.25) 20%, rgba(0,179,164,0.25) 80%, transparent)" }}
@@ -93,7 +93,7 @@ export default function CorporateProcess() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.14, duration: 0.5 }}
-                className="group flex flex-col items-center text-center px-4 pb-8 lg:pb-0"
+                className="group flex flex-col items-center text-center px-4 pb-8 lg:pb-0 h-full"
               >
                 {/* Number circle */}
                 <motion.div
@@ -115,7 +115,7 @@ export default function CorporateProcess() {
                 <motion.div
                   whileHover={{ y: -4 }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  className={`w-full bg-white/5 border rounded-2xl p-5 transition-all duration-300 group-hover:bg-white/10 ${
+                  className={`w-full bg-white/5 border rounded-2xl p-5 transition-all duration-300 group-hover:bg-white/10 flex-1 flex flex-col justify-start ${
                     isTurquoise ? "border-turquoise/20 group-hover:border-turquoise/40" : "border-[#0057A8]/30 group-hover:border-[#0057A8]/50"
                   }`}
                 >

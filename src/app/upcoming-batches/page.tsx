@@ -82,7 +82,7 @@ export default function UpcomingBatchesPage() {
 
           <div className="space-y-4">
             {upcomingCourses.map((course, index) => {
-              const startDate = new Date(course.startDate).toLocaleDateString("en-BH", {
+              const startDate = new Date(course.startDate).toLocaleDateString(isAr ? "ar-BH" : "en-BH", {
                 weekday: "short", year: "numeric", month: "short", day: "numeric",
               });
 

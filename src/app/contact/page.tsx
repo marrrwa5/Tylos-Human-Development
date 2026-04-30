@@ -18,28 +18,15 @@ const schema = z.object({
   email: z.string().email("Valid email required"),
   phone: z.string().optional(),
   subject: z.string().min(3, "Subject required"),
-  department: z.string().min(1, "Please select a department"),
   message: z.string().min(20, "Please enter at least 20 characters"),
 });
 type FormData = z.infer<typeof schema>;
 
-const credentialPills = ["Est. 2002", "NOCN Accredited", "Cisco Partner", "IAB Certified", "100% Funded"];
-
 const contactCards = [
-  { icon: Phone, title: "Phone", titleAr: "الهاتف", lines: ["+973 1700 0000", "+973 1700 0001"], color: "turquoise" },
+  { icon: Phone, title: "Phone", titleAr: "الهاتف", lines: ["+973 1762 6484"], color: "turquoise" },
   { icon: MessageCircle, title: "WhatsApp", titleAr: "واتساب", lines: ["+973 3465 5220"], link: "https://api.whatsapp.com/send?phone=97334655220", color: "green" },
-  { icon: Mail, title: "Email", titleAr: "البريد الإلكتروني", lines: ["info@tylosthd.com", "training@tylosthd.com"], color: "blue" },
-  { icon: Clock, title: "Working Hours", titleAr: "ساعات العمل", lines: ["Sun to Thu: 8:00 AM to 5:00 PM", "Sat: 9:00 AM to 1:00 PM"], linesAr: ["الأحد إلى الخميس: 8:00 ص إلى 5:00 م", "السبت: 9:00 ص إلى 1:00 م"], color: "turquoise" },
-];
-
-const departments = [
-  { label: "General Inquiry", labelAr: "استفسار عام", value: "general" },
-  { label: "Course Enrollment", labelAr: "التسجيل في الدورات", value: "enrollment" },
-  { label: "Corporate Training", labelAr: "تدريب الشركات", value: "corporate" },
-  { label: "100% Funded Programs", labelAr: "البرامج الممولة 100%", value: "funding" },
-  { label: "Certificate Inquiry", labelAr: "الاستفسار عن الشهادات", value: "certificate" },
-  { label: "Instructor Application", labelAr: "طلب انضمام كمدرب", value: "instructor" },
-  { label: "Technical Support", labelAr: "الدعم التقني", value: "support" },
+  { icon: Mail, title: "Email", titleAr: "البريد الإلكتروني", lines: ["info@thd.bh"], color: "blue" },
+  { icon: Clock, title: "Working Hours", titleAr: "ساعات العمل", lines: ["Sun – Wed: 8:30 AM – 5:00 PM", "Thu: 8:30 AM – 4:00 PM", "Fri – Sat: Closed"], linesAr: ["الأحد – الأربعاء: 8:30 ص – 5:00 م", "الخميس: 8:30 ص – 4:00 م", "الجمعة – السبت: مغلق"], color: "turquoise" },
 ];
 
 export default function ContactPage() {
@@ -105,13 +92,6 @@ export default function ContactPage() {
                 "سواء كان لديك استفسار عن الدورات أو التمويل أو تدريب الشركات، فريقنا مستعد للمساعدة."
               )}
             </p>
-            <div className="flex flex-wrap gap-2 justify-center">
-              {credentialPills.map((pill) => (
-                <span key={pill} className="px-4 py-1.5 rounded-full bg-white/8 border border-white/15 text-white/70 text-xs font-medium backdrop-blur-sm">
-                  {pill}
-                </span>
-              ))}
-            </div>
           </ScrollReveal>
         </div>
       </section>
@@ -160,7 +140,7 @@ export default function ContactPage() {
                 {/* Map embed */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 aspect-square">
                   <iframe
-                    src="https://www.google.com/maps?q=Manama+Bahrain&z=15&output=embed"
+                    src="https://maps.google.com/maps?q=Building+698+Road+7325+Block+473+Abu+Saiba+Bahrain&output=embed&z=16"
                     width="100%"
                     height="100%"
                     style={{ border: 0 }}
@@ -170,7 +150,7 @@ export default function ContactPage() {
                   />
                 </div>
 
-                {/* Address card */}
+                {/* Address + email card */}
                 <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
                   <div className="flex items-start gap-3 mb-4">
                     <div className="w-10 h-10 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
@@ -179,39 +159,24 @@ export default function ContactPage() {
                     <div>
                       <div className="font-semibold text-gray-900 text-sm">{t("Our Location", "موقعنا")}</div>
                       <div className="text-gray-500 text-sm mt-1 leading-relaxed">
-                        {t("Kadhem Bushehri Building", "مبنى كاظم بوشهري")}<br />
-                        {t("Manama, Kingdom of Bahrain", "المنامة، مملكة البحرين")}
+                        {t("Office 21, 2nd Floor, Building 698", "مكتب 21، الطابق الثاني، المبنى 698")}<br />
+                        {t("Road 7325, Block 473, Abu Saiba, Bahrain", "طريق 7325، بلوك 473، أبو صيبع، البحرين")}
                       </div>
                     </div>
                   </div>
+                  <div className="flex items-center gap-2 mb-4 text-sm text-gray-500">
+                    <Mail className="h-4 w-4 text-turquoise flex-shrink-0" />
+                    <a href="mailto:info@thd.bh" className="text-turquoise hover:underline font-medium">info@thd.bh</a>
+                  </div>
                   <a
-                    href="https://maps.app.goo.gl/FqmcpdJsHL43H3Yz9"
+                    href="https://maps.app.goo.gl/ysSMTdyVrpHD8E2A6"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-turquoise text-white text-sm font-semibold hover:bg-[#009ea0] transition-colors"
                   >
                     <MapPin className="h-4 w-4" />
-                    Get Directions
+                    {t("Get Directions", "احصل على الاتجاهات")}
                   </a>
-                </div>
-
-                {/* Department contacts */}
-                <div className="bg-white rounded-xl p-5 shadow-sm border border-gray-100">
-                  <h4 className="font-semibold text-gray-900 text-sm mb-3">{t("Department Contacts", "جهات الاتصال بالأقسام")}</h4>
-                  <div className="space-y-2 text-sm text-gray-500">
-                    <div className="flex justify-between">
-                      <span>{t("Sales and Enrollment", "المبيعات والتسجيل")}</span>
-                      <a href="mailto:sales@tylosthd.com" className="text-turquoise hover:underline">sales@tylosthd.com</a>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>{t("Student Support", "دعم الطلاب")}</span>
-                      <a href="mailto:support@tylosthd.com" className="text-turquoise hover:underline">support@tylosthd.com</a>
-                    </div>
-                    <div className="flex justify-between">
-                      <span>{t("Corporate Training", "تدريب الشركات")}</span>
-                      <a href="mailto:corporate@tylosthd.com" className="text-turquoise hover:underline">corporate@tylosthd.com</a>
-                    </div>
-                  </div>
                 </div>
               </div>
             </ScrollReveal>
@@ -220,8 +185,8 @@ export default function ContactPage() {
             <ScrollReveal direction="right" className="lg:col-span-3">
               <div className="bg-white rounded-3xl shadow-xl border border-gray-100 p-8 md:p-10">
                 <SectionHeading
-                  title={t("Send Us a Message", "أرسل لنا رسالة")}
-                  subtitle={t("We respond to all inquiries within 24 business hours.", "نرد على جميع الاستفسارات خلال 24 ساعة عمل.")}
+                  title={t("Let's Keep in Touch", "تواصل معنا")}
+                  subtitle={t("We're more than happy to help you with any inquiry.", "يسعدنا مساعدتك في أي استفسار.")}
                   centered={false}
                 />
 
@@ -239,22 +204,9 @@ export default function ContactPage() {
                     </div>
                   </div>
 
-                  <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
-                    <div className="space-y-1.5">
-                      <Label htmlFor="phone">{t("Phone (optional)", "الهاتف (اختياري)")}</Label>
-                      <Input id="phone" type="tel" {...register("phone")} placeholder="+973 XXXX XXXX" />
-                    </div>
-                    <div className="space-y-1.5">
-                      <Label htmlFor="department">{t("Department", "القسم")}</Label>
-                      <select id="department" {...register("department")}
-                        className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-turquoise focus:ring-1 focus:ring-turquoise bg-white">
-                        <option value="">{t("Select department", "اختر القسم")}</option>
-                        {departments.map((d) => (
-                          <option key={d.value} value={d.value}>{isAr ? d.labelAr : d.label}</option>
-                        ))}
-                      </select>
-                      {errors.department && <p className="text-red-500 text-xs">{errors.department.message}</p>}
-                    </div>
+                  <div className="space-y-1.5">
+                    <Label htmlFor="phone">{t("Phone (optional)", "الهاتف (اختياري)")}</Label>
+                    <Input id="phone" type="tel" {...register("phone")} placeholder="+973 XXXX XXXX" />
                   </div>
 
                   <div className="space-y-1.5">

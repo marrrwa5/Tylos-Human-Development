@@ -160,16 +160,15 @@ export default function HeroSection() {
             className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-turquoise/30 bg-turquoise/10 text-turquoise text-sm font-medium"
           >
             <span className="w-1.5 h-1.5 rounded-full bg-turquoise animate-pulse" />
-            {t("A Trusted Accredited Training Center In Bahrain · Est. 2002", "مركز تدريب معتمد وموثوق في البحرين · تأسس عام 2002")}
+            {t("A Trusted Accredited Training Center In Bahrain · Est. 2002", "مركز تدريب معتمد وموثوق في البحرين — تأسس عام 2002")}
           </motion.div>
 
-          {/* Headline */}
+          {/* Headline — both lines share the same font via CSS h1 rule */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
             className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
-            style={{ fontFamily: "var(--font-sans)" }}
           >
             {t("The First Step", "الخطوة الأولى")}<br />
             <span className="text-gradient-brand">{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
@@ -183,8 +182,8 @@ export default function HeroSection() {
             className="text-white/70 text-lg max-w-lg mb-10 leading-relaxed"
           >
             {t(
-              "Professional training programs across various fields, officially accredited by the Ministry of Labour, and awarded international certifications in the Kingdom of Bahrain.",
-              "برامج تدريبية مهنية في مختلف المجالات، معتمدة رسمياً من وزارة العمل، ومنحت شهادات دولية معترف بها في مملكة البحرين."
+              "Professional training programs across diverse industries, officially accredited by the Ministry of Labour, offering internationally recognized certifications in the Kingdom of Bahrain.",
+              "برامج تدريبية احترافية في مختلف القطاعات، معتمدة رسميًا من وزارة العمل، وتقدم شهادات معترف بها دوليًا في مملكة البحرين."
             )}
           </motion.p>
 
@@ -197,7 +196,7 @@ export default function HeroSection() {
           >
             <CTAButton href="/courses" variant="primary" size="lg">
               {t("Explore Courses", "استكشف الدورات")}
-              <ArrowRight className="ml-2 h-4 w-4" />
+              <ArrowRight className={`h-4 w-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
             </CTAButton>
             <CTAButton
               href="/services"

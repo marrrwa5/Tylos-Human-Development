@@ -24,7 +24,7 @@ export default function NavMenu() {
           >
             <Link
               href={href}
-              className={`relative px-3 py-1.5 text-sm font-medium rounded-md transition-colors duration-200 whitespace-nowrap ${
+              className={`relative px-3 py-1.5 text-sm rounded-md transition-colors duration-200 whitespace-nowrap ${lang === "ar" ? "font-bold" : "font-medium"} ${
                 href === "/upcoming-batches"
                   ? isActive
                     ? "bg-turquoise text-white"

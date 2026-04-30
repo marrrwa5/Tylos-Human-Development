@@ -8,7 +8,7 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import CTAButton from "@/components/shared/CTAButton";
 import { toast } from "sonner";
-import { GraduationCap } from "lucide-react";
+import { GraduationCap, Paperclip } from "lucide-react";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -24,20 +24,27 @@ type FormData = z.infer<typeof schema>;
 
 export default function InstructorApplicationForm() {
   const [loading, setLoading] = useState(false);
+  const [cvFile, setCvFile] = useState<File | null>(null);
   const { t } = useLanguage();
   const { register, handleSubmit, reset, formState: { errors } } = useForm<FormData>({ resolver: zodResolver(schema) });
 
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
+      const formData = new FormData();
+      Object.entries(data).forEach(([k, v]) => formData.append(k, v));
+      formData.append("type", "instructor-application");
+      if (cvFile) formData.append("cv", cvFile);
+
       const res = await fetch("/api/contact", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "instructor-application" }),
+        body: JSON.stringify({ ...data, type: "instructor-application", cvFileName: cvFile?.name }),
       });
       if (res.ok) {
         toast.success(t("Application submitted! We'll be in touch soon.", "تم إرسال طلبك! سنتواصل معك قريباً."));
         reset();
+        setCvFile(null);
       } else {
         toast.error(t("Submission failed. Please try again.", "فشل الإرسال. يرجى المحاولة مرة أخرى."));
       }
@@ -97,11 +104,7 @@ export default function InstructorApplicationForm() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="experience">{t("Years of Training Experience *", "سنوات خبرة التدريب *")}</Label>
-                  <select
-                    id="experience"
-                    {...register("experience")}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-turquoise focus:ring-1 focus:ring-turquoise bg-white"
-                  >
+                  <select id="experience" {...register("experience")} className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-turquoise focus:ring-1 focus:ring-turquoise bg-white">
                     <option value="">{t("Select experience level", "اختر مستوى الخبرة")}</option>
                     <option value="0-2">{t("Less than 2 years", "أقل من سنتين")}</option>
                     <option value="2-5">{t("2 – 5 years", "2 – 5 سنوات")}</option>
@@ -113,14 +116,39 @@ export default function InstructorApplicationForm() {
 
                 <div className="space-y-1.5">
                   <Label htmlFor="message">{t("Tell us about yourself *", "أخبرنا عن نفسك *")}</Label>
-                  <textarea
-                    id="message"
-                    {...register("message")}
-                    rows={4}
-                    placeholder={t("Brief bio, qualifications, and areas you'd like to teach...", "نبذة مختصرة، مؤهلاتك، والمجالات التي تودّ تدريسها...")}
-                    className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-turquoise focus:ring-1 focus:ring-turquoise resize-none"
-                  />
+                  <textarea id="message" {...register("message")} rows={4} placeholder={t("Brief bio, qualifications, and areas you'd like to teach...", "نبذة مختصرة، مؤهلاتك، والمجالات التي تودّ تدريسها...")} className="w-full px-3 py-2 border border-gray-200 rounded-lg text-sm focus:outline-none focus:border-turquoise focus:ring-1 focus:ring-turquoise resize-none" />
                   {errors.message && <p className="text-red-500 text-xs">{t("Please tell us more about yourself (min 20 chars)", "يرجى إخبارنا المزيد عن نفسك (20 حرفاً على الأقل)")}</p>}
+                </div>
+
+                {/* CV Upload */}
+                <div className="space-y-1.5">
+                  <Label>{t("Attach Your CV", "أرفق سيرتك الذاتية")}</Label>
+                  <label className="flex items-center gap-3 px-4 py-3 border-2 border-dashed border-gray-200 rounded-xl cursor-pointer hover:border-turquoise/50 hover:bg-turquoise/5 transition-all duration-200 group">
+                    <div className="w-9 h-9 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0 group-hover:bg-turquoise transition-colors">
+                      <Paperclip className="h-4 w-4 text-turquoise group-hover:text-white" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      {cvFile ? (
+                        <span className="text-sm text-turquoise font-medium truncate block">{cvFile.name}</span>
+                      ) : (
+                        <>
+                          <span className="text-sm text-gray-700 font-medium">{t("Click to upload CV", "انقر لرفع السيرة الذاتية")}</span>
+                          <span className="text-xs text-gray-400 block">{t("PDF, DOC, DOCX — max 5MB", "PDF أو DOC أو DOCX — بحد أقصى 5MB")}</span>
+                        </>
+                      )}
+                    </div>
+                    <input
+                      type="file"
+                      accept=".pdf,.doc,.docx"
+                      className="hidden"
+                      onChange={(e) => setCvFile(e.target.files?.[0] ?? null)}
+                    />
+                  </label>
+                  {cvFile && (
+                    <button type="button" onClick={() => setCvFile(null)} className="text-xs text-red-400 hover:text-red-600 transition-colors">
+                      {t("Remove file", "حذف الملف")}
+                    </button>
+                  )}
                 </div>
 
                 <CTAButton type="submit" variant="primary" size="lg" className="w-full" disabled={loading}>

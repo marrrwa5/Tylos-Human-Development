@@ -18,7 +18,7 @@ export default function PageBannerText({
   subtitle, subtitleAr,
   pills,
 }: PageBannerTextProps) {
-  const { t } = useLanguage();
+  const { t, isAr } = useLanguage();
 
   return (
     <>
@@ -27,7 +27,10 @@ export default function PageBannerText({
       </p>
       <h1
         className="font-bold text-4xl md:text-6xl text-white mb-6"
-        style={{ fontFamily: "var(--font-sans)" }}
+        style={isAr
+          ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 900 }
+          : { fontFamily: "var(--font-sans)" }
+        }
       >
         {t(title, titleAr)}
       </h1>

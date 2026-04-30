@@ -45,7 +45,7 @@ export default function MissionVisionValues() {
       <div className="container-wide">
         <ScrollReveal>
           <SectionHeading
-            title={t("Mission, Vision & Values", "المهمة والرؤية والقيم")}
+            title={t("Mission, Vision & Values", "في تايلوس")}
             subtitle={t(
               "The principles that guide everything we do at Tylos Human Development Center.",
               "المبادئ التي توجه كل ما نقوم به في مركز تايلوس للتنمية البشرية."

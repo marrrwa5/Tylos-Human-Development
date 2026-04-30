@@ -57,9 +57,9 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
           </Badge>
         </div>
 
-        {/* Funded badge — top right */}
+        {/* Funded badge — bottom right */}
         {course.isFunded && (
-          <div className="absolute top-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
+          <div className="absolute bottom-3 right-3 bg-green-500 text-white text-xs font-bold px-2.5 py-1 rounded-full flex items-center gap-1">
             <CheckCircle className="h-3 w-3" />
             {t("100% Funded", "تمويل 100%")}
           </div>

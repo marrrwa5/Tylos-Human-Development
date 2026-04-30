@@ -31,10 +31,23 @@ const clients = [
 
 export default function ClientLogos() {
   const { t, isAr } = useLanguage();
-  const items = [...clients, ...clients];
 
   return (
     <section className="py-14 bg-[#0d1e35] border-y border-white/10">
+      <style>{`
+        @keyframes clients-loop {
+          0%   { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .clients-track {
+          display: flex;
+          gap: 1.5rem;
+          width: max-content;
+          animation: clients-loop 40s linear infinite;
+          will-change: transform;
+        }
+      `}</style>
+
       {/* Headline */}
       <div className="container-wide mb-10">
         <p className={`text-center font-bold text-white ${isAr ? "text-3xl md:text-4xl" : "text-lg uppercase tracking-widest"}`}>
@@ -42,20 +55,17 @@ export default function ClientLogos() {
         </p>
       </div>
 
-      {/* Ticker wrapper — hides overflow and adds fade edges */}
-      <div className="relative overflow-hidden">
-        <div
-          className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to right, #0d1e35, transparent)" }}
-        />
-        <div
-          className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
-          style={{ background: "linear-gradient(to left, #0d1e35, transparent)" }}
-        />
-
-        {/* Scrolling track */}
-        <div className="ticker-track flex gap-6 w-max">
-          {items.map((client, i) => (
+      {/* Ticker */}
+      <div
+        className="overflow-hidden relative"
+        style={{
+          maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+        }}
+      >
+        {/* Two identical copies — when first copy scrolls off, second is already in place */}
+        <div className="clients-track">
+          {[...clients, ...clients].map((client, i) => (
             <div
               key={i}
               className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10"

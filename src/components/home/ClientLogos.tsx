@@ -29,6 +29,8 @@ const clients = [
   { name: "Rsha Contracting", nameAr: "رشا للمقاولات" },
 ];
 
+const ITEM_GAP = 20; // px — must match marginRight below
+
 export default function ClientLogos() {
   const { t, isAr } = useLanguage();
 
@@ -41,10 +43,28 @@ export default function ClientLogos() {
         }
         .clients-track {
           display: flex;
-          gap: 1.5rem;
-          width: max-content;
-          animation: clients-loop 40s linear infinite;
+          animation: clients-loop 45s linear infinite;
           will-change: transform;
+          /* pause on hover of the SECTION, not the track itself */
+        }
+        .clients-item {
+          flex-shrink: 0;
+          margin-right: ${ITEM_GAP}px;
+          padding: 10px 20px;
+          border-radius: 12px;
+          background: rgba(255,255,255,0.06);
+          border: 1px solid rgba(255,255,255,0.1);
+          cursor: default;
+          transition: background 0.2s, border-color 0.2s, color 0.2s;
+          white-space: nowrap;
+          font-size: 0.875rem;
+          font-weight: 500;
+          color: rgba(255,255,255,0.7);
+        }
+        .clients-item:hover {
+          background: #ffffff;
+          border-color: #ffffff;
+          color: #0d1e35;
         }
       `}</style>
 
@@ -55,24 +75,24 @@ export default function ClientLogos() {
         </p>
       </div>
 
-      {/* Ticker */}
+      {/* Ticker — overflow hidden with soft fade edges */}
       <div
-        className="overflow-hidden relative"
+        className="overflow-hidden"
         style={{
-          maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
+          maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
         }}
       >
-        {/* Two identical copies — when first copy scrolls off, second is already in place */}
+        {/*
+          Two identical copies side by side.
+          translateX(-50%) moves exactly one copy width → seamless reset.
+          margin-right on every item (including last of copy 1) keeps
+          the gap between copy 1 end → copy 2 start identical to all others.
+        */}
         <div className="clients-track">
           {[...clients, ...clients].map((client, i) => (
-            <div
-              key={i}
-              className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10"
-            >
-              <span className="text-white/70 font-medium text-sm whitespace-nowrap">
-                {isAr ? client.nameAr : client.name}
-              </span>
+            <div key={i} className="clients-item">
+              {isAr ? client.nameAr : client.name}
             </div>
           ))}
         </div>

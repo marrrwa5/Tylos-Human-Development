@@ -49,18 +49,13 @@ export default function CEOMessage() {
   const { t, isAr } = useLanguage();
 
   return (
-    <section className="section-padding bg-[#020b13] relative overflow-hidden">
-      {/* Background decoration */}
+    <section className="section-padding bg-[#f8fafc] relative overflow-hidden">
+      {/* Subtle background decoration */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute -top-32 -left-32 w-[500px] h-[500px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(0,179,164,0.08) 0%, transparent 70%)" }} />
+          style={{ background: "radial-gradient(circle, rgba(0,179,164,0.06) 0%, transparent 70%)" }} />
         <div className="absolute -bottom-32 -right-32 w-[400px] h-[400px] rounded-full"
-          style={{ background: "radial-gradient(circle, rgba(0,87,168,0.08) 0%, transparent 70%)" }} />
-        <div className="absolute inset-0"
-          style={{
-            backgroundImage: "radial-gradient(circle at 1px 1px, rgba(0,179,164,0.06) 1px, transparent 0)",
-            backgroundSize: "40px 40px",
-          }} />
+          style={{ background: "radial-gradient(circle, rgba(0,87,168,0.05) 0%, transparent 70%)" }} />
       </div>
 
       <div className="relative container-wide">
@@ -71,10 +66,10 @@ export default function CEOMessage() {
               <Sparkles className="h-3.5 w-3.5" />
               {t("Leadership", "القيادة")}
             </div>
-            <h2 className="font-bold text-3xl md:text-4xl text-white">
+            <h2 className="font-bold text-3xl md:text-4xl text-gray-900">
               {t("A Message from Our Leadership", "رسالة من قيادتنا")}
             </h2>
-            <p className="text-white/40 text-sm mt-3 max-w-md mx-auto">
+            <p className="text-gray-400 text-sm mt-3 max-w-md mx-auto">
               {t("The vision and values behind Tylos Human Development Center.", "الرؤية والقيم وراء مركز تايلوس للتنمية البشرية.")}
             </p>
           </div>
@@ -97,9 +92,9 @@ export default function CEOMessage() {
                   style={{ background: `linear-gradient(135deg, ${member.accentColor}40, transparent)` }}
                 />
 
-                <div className="relative bg-white/[0.04] border border-white/10 rounded-3xl p-8 h-full group-hover:border-white/20 transition-all duration-300">
+                <div className="relative bg-white border border-gray-100 rounded-3xl p-8 h-full shadow-sm group-hover:shadow-md group-hover:border-turquoise/20 transition-all duration-300">
                   {/* Quote icon */}
-                  <Quote className="absolute top-6 right-6 h-12 w-12 opacity-[0.06] text-white" />
+                  <Quote className="absolute top-6 right-6 h-12 w-12 opacity-10 text-turquoise" />
 
                   {/* Header */}
                   <div className="flex items-center gap-5 mb-8">
@@ -113,7 +108,7 @@ export default function CEOMessage() {
                         className="w-20 h-20 rounded-full p-[3px]"
                         style={{ background: `linear-gradient(135deg, ${member.accentColor}, transparent 60%)` }}
                       >
-                        <div className="w-full h-full rounded-full overflow-hidden bg-[#020b13]">
+                        <div className="w-full h-full rounded-full overflow-hidden bg-gray-100">
                           <Image
                             src={member.image}
                             alt={isAr ? member.nameAr : member.nameEn}
@@ -125,13 +120,13 @@ export default function CEOMessage() {
                       </div>
                       {/* Online dot */}
                       <div
-                        className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-[#020b13]"
+                        className="absolute bottom-1 right-1 w-4 h-4 rounded-full border-2 border-white"
                         style={{ backgroundColor: member.accentColor }}
                       />
                     </motion.div>
 
                     <div>
-                      <h3 className="font-bold text-white text-xl leading-tight">
+                      <h3 className="font-bold text-gray-900 text-xl leading-tight">
                         {isAr ? member.nameAr : member.nameEn}
                       </h3>
                       <p className="text-sm mt-1" style={{ color: member.accentColor }}>
@@ -154,7 +149,7 @@ export default function CEOMessage() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5, delay: i * 0.2 + j * 0.1 }}
-                        className="text-white/65 text-sm leading-relaxed"
+                        className="text-gray-500 text-sm leading-relaxed"
                       >
                         {para}
                       </motion.p>

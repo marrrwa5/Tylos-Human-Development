@@ -39,11 +39,11 @@ export default function ClientLogos() {
       <style>{`
         @keyframes clients-loop {
           0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-33.333%); }
         }
         .clients-track {
           display: flex;
-          animation: clients-loop 45s linear infinite;
+          animation: clients-loop 25s linear infinite;
           will-change: transform;
           /* pause on hover of the SECTION, not the track itself */
         }
@@ -90,7 +90,7 @@ export default function ClientLogos() {
           the gap between copy 1 end → copy 2 start identical to all others.
         */}
         <div className="clients-track">
-          {[...clients, ...clients].map((client, i) => (
+          {[...clients, ...clients, ...clients].map((client, i) => (
             <div key={i} className="clients-item">
               {isAr ? client.nameAr : client.name}
             </div>

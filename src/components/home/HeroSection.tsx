@@ -174,7 +174,7 @@ export default function HeroSection() {
               {t("The First Step", "الخطوة الأولى")}
             </span><br />
             <span
-              className="text-gradient-brand"
+              className={isAr ? "text-gradient-brand-heavy" : "text-gradient-brand"}
               style={isAr ? { fontWeight: 900, fontFamily: '"BahijTheSans", system-ui, sans-serif' } : {}}
             >{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
           </motion.h1>

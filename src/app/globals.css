@@ -185,10 +185,18 @@
     background: linear-gradient(135deg, #E6FAF9 0%, #EBF3FC 100%);
   }
   .text-gradient-brand {
-    background: linear-gradient(135deg, #00B3A4, #0057A8);
+    background: linear-gradient(135deg, #00E5D4 0%, #00B3A4 40%, #0078D4 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+  }
+
+  .text-gradient-brand-heavy {
+    background: linear-gradient(135deg, #00E5D4 0%, #00B3A4 40%, #0078D4 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 3px rgba(0,179,164,0.5)) drop-shadow(0 0 6px rgba(0,120,212,0.3));
   }
 
   /* Section spacing */

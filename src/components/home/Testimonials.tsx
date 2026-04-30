@@ -65,7 +65,7 @@ export default function Testimonials() {
         <ScrollReveal>
           <div className="mb-12">
             <SectionHeading
-              title={t("What Our Graduates Said", "ماذا قال متدربونا")}
+              title={t("What Our Graduates Said", "ماذا قال متدربينا")}
               subtitle={t("Real stories from professionals who transformed their careers at Tylos.", "قصص حقيقية من محترفين غيّروا مساراتهم المهنية في تايلوس.")}
               light
               centered

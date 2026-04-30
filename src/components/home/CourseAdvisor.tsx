@@ -24,9 +24,28 @@ function getRecommendations(answers: Record<string, string>) {
   };
   const targetCategories = areaMap[answers.area] || [];
   const targetLevel = levelMap[answers.level] || "All Levels";
-  return courses
-    .filter((c) => targetCategories.includes(c.category) && (c.level === targetLevel || c.level === "All Levels"))
-    .slice(0, 3);
+
+  // Try exact match first
+  let results = courses.filter(
+    (c) => targetCategories.includes(c.category) && (c.level === targetLevel || c.level === "All Levels")
+  ).slice(0, 3);
+
+  // If no exact match, relax level constraint
+  if (results.length === 0) {
+    results = courses.filter((c) => targetCategories.includes(c.category)).slice(0, 3);
+  }
+
+  // If still nothing, return top 3 featured courses as fallback
+  if (results.length === 0) {
+    results = courses.filter((c) => c.isFeatured).slice(0, 3);
+  }
+
+  // Absolute fallback: first 3 courses
+  if (results.length === 0) {
+    results = courses.slice(0, 3);
+  }
+
+  return results;
 }
 
 export default function CourseAdvisor() {
@@ -173,15 +192,9 @@ export default function CourseAdvisor() {
                 </div>
                 <DialogTitle className="text-xl">{t("Your Recommended Courses", "الدورات الموصى بها لك")}</DialogTitle>
               </DialogHeader>
-              {recommendations.length > 0 ? (
-                <div className="grid gap-4 mt-4">
-                  {recommendations.map((course) => (<CourseCard key={course.id} course={course} compact />))}
-                </div>
-              ) : (
-                <div className="text-center py-8 text-gray-brand">
-                  <p>{t("No exact matches found. Browse all our courses instead.", "لم يتم العثور على تطابق دقيق. تصفح جميع دوراتنا بدلاً من ذلك.")}</p>
-                </div>
-              )}
+              <div className="grid gap-4 mt-4">
+                {recommendations.map((course) => (<CourseCard key={course.id} course={course} compact />))}
+              </div>
               <div className="flex gap-3 mt-6">
                 <CTAButton href="/courses" variant="primary" className="flex-1">{t("View All Courses", "عرض جميع الدورات")}</CTAButton>
                 <CTAButton onClick={reset} variant="outline" className="flex-1">{t("Retake Quiz", "إعادة الاختبار")}</CTAButton>

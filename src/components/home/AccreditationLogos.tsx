@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import ScrollReveal from "@/components/shared/ScrollReveal";
 import { useLanguage } from "@/context/LanguageContext";
 
@@ -26,8 +27,8 @@ export default function AccreditationLogos() {
         <div className="flex flex-wrap items-center justify-center gap-12 md:gap-20">
           {accreditations.map((acc, index) => (
             <ScrollReveal key={acc.name} delay={index * 0.1}>
-              <div className="group flex flex-col items-center gap-3">
-                <div className="relative w-40 h-24 flex items-center justify-center bg-white">
+              <Link href="/about#accreditations" className="group flex flex-col items-center gap-3">
+                <div className="relative w-40 h-24 flex items-center justify-center bg-white hover:opacity-80 transition-opacity duration-200">
                   <Image
                     src={acc.file}
                     alt={acc.name}
@@ -35,7 +36,7 @@ export default function AccreditationLogos() {
                     className="object-contain p-2 transition-all duration-300"
                   />
                 </div>
-              </div>
+              </Link>
             </ScrollReveal>
           ))}
         </div>

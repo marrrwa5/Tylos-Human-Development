@@ -110,18 +110,16 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
           🏆 {course.certificateType}
         </div>
 
-        {/* Footer row */}
-        <div className={`flex items-center mt-auto pt-2 border-t border-gray-100 ${isAr ? "justify-start" : "justify-between"}`}>
+        {/* Footer row — button always bottom-left in AR, right in EN */}
+        <div className="flex items-center mt-auto pt-2 border-t border-gray-100 justify-between">
           {course.isFunded && !isAr && (
             <span className="text-green-600 font-bold text-sm">{t("100% Funded", "تمويل 100%")}</span>
           )}
+          {isAr && <span />}
           <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-turquoise text-white text-sm font-semibold rounded-lg group-hover:bg-[#009ea0] transition-colors">
             {t("Read More", "اقرأ المزيد")}
             <ArrowRight className={`h-3.5 w-3.5 transition-transform duration-200 ${isAr ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`} />
           </span>
-          {course.isFunded && isAr && (
-            <span className="text-green-600 font-bold text-sm mr-auto pr-2">{t("100% Funded", "تمويل 100%")}</span>
-          )}
         </div>
       </div>
     </Link>

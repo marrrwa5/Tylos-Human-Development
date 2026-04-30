@@ -175,12 +175,7 @@ export default function HeroSection() {
             </span><br />
             <span
               className="text-gradient-brand"
-              style={isAr ? {
-                fontWeight: 900,
-                fontFamily: '"BahijTheSans", system-ui, sans-serif',
-                WebkitTextStroke: "1.5px #00B3A4",
-                paintOrder: "stroke fill",
-              } : {}}
+              style={isAr ? { fontWeight: 900, fontFamily: '"BahijTheSans", system-ui, sans-serif' } : {}}
             >{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
           </motion.h1>
 

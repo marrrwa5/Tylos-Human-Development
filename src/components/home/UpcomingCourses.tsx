@@ -25,29 +25,21 @@ export default function UpcomingCourses() {
   };
 
   return (
-    <section className="section-padding bg-[#0d1e35]">
+    <section className="section-padding bg-white">
       <div className="container-wide">
-        {/* Turquoise highlight frame */}
-        <div className="relative rounded-3xl border border-turquoise/40 bg-turquoise/[0.07] p-6 md:p-10 shadow-[0_0_80px_rgba(0,179,164,0.14),inset_0_1px_0_rgba(0,179,164,0.15)]">
-          {/* Outer glow */}
-          <div className="absolute inset-0 rounded-3xl bg-turquoise/5 blur-xl pointer-events-none -z-10 scale-105" />
-          {/* Top shimmer */}
-          <div className="absolute top-0 left-6 right-6 h-px bg-gradient-to-r from-transparent via-turquoise/60 to-transparent" />
-          {/* Corner accents */}
-          <div className="absolute top-0 left-0 w-14 h-14 rounded-tl-3xl border-t-2 border-l-2 border-turquoise/60" />
-          <div className="absolute bottom-0 right-0 w-14 h-14 rounded-br-3xl border-b-2 border-r-2 border-turquoise/60" />
+        {/* Light frame */}
+        <div className="relative rounded-3xl border border-turquoise/30 bg-[#f8fafc] p-6 md:p-10 shadow-sm">
         <ScrollReveal>
           <SectionHeading
             title={t("Upcoming Course Batches", "الدفعات القادمة")}
             subtitle={t("Enrollment is opening soon for these programs. Register your interest and we'll notify you.", "سجل اهتمامك، سنتواصل معك عند فتح باب التسجيل")}
-            light
           />
         </ScrollReveal>
 
         <div className="mt-12 space-y-4">
           {upcoming.map((course, index) => (
             <ScrollReveal key={course.id} delay={index * 0.1}>
-              <div className="group bg-white/5 border border-white/10 rounded-2xl p-5 md:p-6 hover:border-turquoise/40 hover:bg-white/8 transition-all duration-300">
+              <div className="group bg-white border border-gray-100 rounded-2xl p-5 md:p-6 hover:border-turquoise/40 hover:shadow-md transition-all duration-300">
                 <div className="flex flex-col md:flex-row md:items-center gap-4">
                   {/* Category dot + title */}
                   <div className="flex-1 min-w-0">
@@ -61,21 +53,21 @@ export default function UpcomingCourses() {
                           : course.category}
                       </Badge>
                       {course.isFunded && (
-                        <Badge className="bg-green-900/40 text-green-400 border-green-700/40 text-xs">
+                        <Badge className="bg-green-50 text-green-700 border-green-200 text-xs">
                           {t("100% Funded", "تمويل 100%")}
                         </Badge>
                       )}
                     </div>
-                    <h3 className="font-bold text-white text-base md:text-lg group-hover:text-turquoise transition-colors">
+                    <h3 className="font-bold text-gray-900 text-base md:text-lg group-hover:text-turquoise transition-colors">
                       {isAr && course.titleAr ? course.titleAr : course.title}
                     </h3>
-                    <p className="text-white/50 text-sm mt-1 line-clamp-1">
+                    <p className="text-gray-400 text-sm mt-1 line-clamp-1">
                       {course.certificateType}
                     </p>
                   </div>
 
                   {/* Meta */}
-                  <div className="flex flex-wrap gap-4 text-sm text-white/55 md:flex-shrink-0">
+                  <div className="flex flex-wrap gap-4 text-sm text-gray-500 md:flex-shrink-0">
                     <div className="flex items-center gap-1.5">
                       <Calendar className="h-4 w-4 text-turquoise" />
                       {new Date(course.startDate).toLocaleDateString("en-BH", {
@@ -100,7 +92,7 @@ export default function UpcomingCourses() {
                       href={`/courses/${course.slug}`}
                       variant="outline"
                       size="sm"
-                      className="border-white/25 text-white hover:bg-white hover:text-blue-dark"
+                      className="border-turquoise/40 text-turquoise hover:bg-turquoise hover:text-white"
                     >
                       {t("Learn More", "اعرف أكثر")}
                     </CTAButton>
@@ -121,7 +113,7 @@ export default function UpcomingCourses() {
 
         <ScrollReveal delay={0.3}>
           <div className="text-center mt-10">
-            <CTAButton href="/upcoming-batches" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white hover:text-blue-dark">
+            <CTAButton href="/upcoming-batches" variant="outline" size="lg" className="border-turquoise/40 text-turquoise hover:bg-turquoise hover:text-white">
               {t("View Full Course Calendar", "عرض تقويم الدورات الكامل")}
             </CTAButton>
           </div>

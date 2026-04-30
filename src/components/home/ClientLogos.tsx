@@ -43,9 +43,9 @@ export default function ClientLogos() {
         }
         .clients-track {
           display: flex;
+          direction: ltr;
           animation: clients-loop 25s linear infinite;
           will-change: transform;
-          /* pause on hover of the SECTION, not the track itself */
         }
         .clients-item {
           flex-shrink: 0;
@@ -79,6 +79,7 @@ export default function ClientLogos() {
       <div
         className="overflow-hidden"
         style={{
+          direction: "ltr",
           maskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)",
         }}

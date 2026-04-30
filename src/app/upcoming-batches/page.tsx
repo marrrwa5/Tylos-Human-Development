@@ -55,12 +55,12 @@ export default function UpcomingBatchesPage() {
               className="font-bold text-4xl md:text-6xl text-white mb-6"
               style={{ fontFamily: "var(--font-sans)" }}
             >
-              {t("Upcoming Batches", "الدفعات القادمة")}
+              {t("Upcoming Batches", "الدورات القادمة")}
             </h1>
             <p className="text-white/70 text-lg max-w-2xl mx-auto">
               {t(
                 "Browse upcoming course start dates. Register your interest and we will remind you when enrollment opens.",
-                "استعرض تواريخ بدء الدورات القادمة. سجّل اهتمامك وسنُذكّرك عند فتح باب التسجيل."
+                "سيبدأ التسجيل قريباً في هذه البرامج. سجّل اهتمامك وسنتواصل معك لتذكيرك."
               )}
             </p>
           </ScrollReveal>

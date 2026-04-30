@@ -59,7 +59,7 @@ export default function CTABanner() {
               <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "var(--font-sans)" }}>
                 {t("Invest in your employees", "استثمر في موظفيك")}
               </h2>
-              <p className="text-white/75 text-lg mb-10 leading-relaxed">
+              <p className={`text-white/75 text-lg mb-10 ${isAr ? "whitespace-nowrap overflow-visible text-base" : "leading-relaxed"}`}>
                 {t(
                   "Join businesses that have elevated their performance with Tylos Human Development Center. Internationally accredited programs. 100% funded.",
                   "انضم إلى الشركات التي رفعت من أدائها مع مركز تايلوس للتنمية البشرية. برامج معتمدة دولياً. تمويل 100%."

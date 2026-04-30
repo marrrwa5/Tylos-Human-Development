@@ -36,7 +36,7 @@ export default function ClientLogos() {
     <section className="py-14 bg-[#0d1e35] border-y border-white/10 overflow-hidden">
       <div className="container-wide">
         <p className={`text-center font-bold text-white mb-10 ${isAr ? "text-xl" : "text-sm uppercase tracking-widest"}`}>
-          {t("Trusted by Leaders Across Industries", "موثوق به من قبل قادة الصناعة")}
+          {t("Trusted by Leaders Across Industries", "موثوق به من قبل")}
         </p>
       </div>
 

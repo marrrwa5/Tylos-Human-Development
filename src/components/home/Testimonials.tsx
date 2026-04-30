@@ -82,7 +82,7 @@ export default function Testimonials() {
             >
               {visible.map((t2, i) => (
                 <div key={`${t2.id}-${i}`} className="relative bg-white/5 rounded-2xl border border-white/10 p-6 flex flex-col gap-4 hover:border-turquoise/20 transition-colors duration-300">
-                  <Quote className="absolute top-4 right-4 h-10 w-10 text-turquoise/10" />
+                  <Quote className={`absolute top-4 h-10 w-10 text-turquoise/10 ${isAr ? "left-4" : "right-4"}`} />
                   <Stars rating={t2.rating} />
                   <blockquote className="text-white/80 text-sm leading-relaxed flex-1 italic">&ldquo;{isAr && t2.quoteAr ? t2.quoteAr : t2.quote}&rdquo;</blockquote>
                   <div className="flex items-center gap-3 pt-4 border-t border-white/10">

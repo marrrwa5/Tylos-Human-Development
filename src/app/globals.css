@@ -262,15 +262,15 @@
   font-weight: 700;
 }
 
-/* h2–h6: Bahij TheSans with heavy synthetic bold for section headings */
+/* h2–h6: Bahij TheSans bold for section headings */
 [dir="rtl"] h2,
 [dir="rtl"] h3,
 [dir="rtl"] h4,
 [dir="rtl"] h5,
 [dir="rtl"] h6 {
-  font-family: "BahijTheSans", var(--font-arabic-heading), system-ui, sans-serif;
-  letter-spacing: 0;
-  font-weight: 900;
+  font-family: "BahijTheSans", var(--font-arabic-heading), system-ui, sans-serif !important;
+  letter-spacing: 0 !important;
+  font-weight: 900 !important;
 }
 
 /* Arabic nav: Bahij TheSans Plain (regular weight) */

@@ -247,16 +247,22 @@
   letter-spacing: 0;
 }
 
-/* Bold headings use Lalezar (closest to Bahij Myriad Arabic Bold) */
-[dir="rtl"] h1,
+/* h1: Lalezar for hero headline */
+[dir="rtl"] h1 {
+  font-family: var(--font-arabic-heading), "BahijTheSans", system-ui, sans-serif;
+  letter-spacing: 0;
+  font-weight: 700;
+}
+
+/* h2–h6: Bahij TheSans with heavy synthetic bold for section headings */
 [dir="rtl"] h2,
 [dir="rtl"] h3,
 [dir="rtl"] h4,
 [dir="rtl"] h5,
 [dir="rtl"] h6 {
-  font-family: var(--font-arabic-heading), "BahijTheSans", system-ui, sans-serif;
+  font-family: "BahijTheSans", var(--font-arabic-heading), system-ui, sans-serif;
   letter-spacing: 0;
-  font-weight: 700;
+  font-weight: 900;
 }
 
 /* Arabic nav: Bahij TheSans Plain (regular weight) */

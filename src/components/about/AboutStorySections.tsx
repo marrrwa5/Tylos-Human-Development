@@ -83,13 +83,13 @@ export default function AboutStorySections() {
         </div>
       </section>
 
-      {/* What Makes Us Different */}
-      <section className="section-padding bg-white">
+      {/* What Makes Us Different — dark mode */}
+      <section className="section-padding bg-[#07111e]">
         <div className="container-wide">
           <ScrollReveal>
             <div className="text-center mb-12">
-              <div className="w-10 h-1 rounded-full bg-blue-brand mx-auto mb-4" />
-              <h2 className="font-bold text-3xl md:text-4xl text-gray-900">
+              <div className="w-10 h-1 rounded-full bg-turquoise mx-auto mb-4" />
+              <h2 className="font-bold text-3xl md:text-4xl text-white">
                 {t("What Makes Us Different", "ما الذي يميّزنا")}
               </h2>
             </div>
@@ -98,18 +98,18 @@ export default function AboutStorySections() {
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {differences.map(({ Icon, titleEn, titleAr, descEn, descAr, color }, i) => (
               <ScrollReveal key={titleEn} delay={i * 0.1}>
-                <div className="group bg-gray-50 border border-gray-100 rounded-2xl p-6 hover:bg-white hover:shadow-lg hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
+                <div className="group bg-white/5 border border-white/10 rounded-2xl p-6 hover:bg-white/10 hover:border-turquoise/40 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col">
                   <div className={`w-12 h-12 rounded-xl flex items-center justify-center mb-5 transition-colors duration-300 ${
-                    color === "turquoise" ? "bg-turquoise/10 group-hover:bg-turquoise" : "bg-blue-brand/10 group-hover:bg-blue-brand"
+                    color === "turquoise" ? "bg-turquoise/20 group-hover:bg-turquoise" : "bg-blue-brand/20 group-hover:bg-blue-brand"
                   }`}>
                     <Icon className={`h-5 w-5 transition-colors duration-300 ${
-                      color === "turquoise" ? "text-turquoise group-hover:text-white" : "text-blue-brand group-hover:text-white"
+                      color === "turquoise" ? "text-turquoise group-hover:text-white" : "text-blue-300 group-hover:text-white"
                     }`} />
                   </div>
-                  <h3 className={`font-bold text-sm mb-2 ${color === "turquoise" ? "text-turquoise" : "text-blue-brand"}`}>
+                  <h3 className={`font-bold text-sm mb-2 ${color === "turquoise" ? "text-turquoise" : "text-blue-300"}`}>
                     {isAr ? titleAr : titleEn}
                   </h3>
-                  <p className="text-gray-500 text-sm leading-relaxed flex-1">{isAr ? descAr : descEn}</p>
+                  <p className="text-white/55 text-sm leading-relaxed flex-1">{isAr ? descAr : descEn}</p>
                 </div>
               </ScrollReveal>
             ))}

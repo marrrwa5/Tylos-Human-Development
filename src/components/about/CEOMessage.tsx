@@ -76,14 +76,15 @@ export default function CEOMessage() {
                   <div className="p-8">
                     {/* Header: circle photo + name */}
                     <div className="flex items-center gap-5 mb-6">
-                      <div className={`relative flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-4 shadow-lg ${
-                        isTurquoise ? "ring-turquoise/30" : "ring-blue-brand/30"
+                      <div className={`relative flex-shrink-0 w-20 h-20 rounded-full overflow-hidden ring-4 shadow-xl ${
+                        isTurquoise ? "ring-turquoise/40" : "ring-blue-brand/40"
                       }`}>
                         <Image
                           src={member.image}
                           alt={isAr ? member.nameAr : member.nameEn}
-                          fill
-                          className="object-cover object-top"
+                          width={80}
+                          height={80}
+                          className="w-full h-full object-cover object-[center_20%]"
                         />
                       </div>
                       <div>

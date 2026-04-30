@@ -12,6 +12,7 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import CTAButton from "@/components/shared/CTAButton";
 import PageBannerText from "@/components/shared/PageBannerText";
 import { Download } from "lucide-react";
+import BilText from "@/components/shared/BilText";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -71,7 +72,7 @@ export default function AboutPage() {
             <div className="mt-6">
               <CTAButton href="/pdfs/company-profile.pdf" variant="primary" size="lg" external>
                 <Download className="mr-2 h-4 w-4" />
-                Download Company Profile
+                <BilText en="Download Company Profile" ar="تحميل الملف التعريفي" />
               </CTAButton>
             </div>
           </ScrollReveal>

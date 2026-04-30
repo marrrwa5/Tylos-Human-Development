@@ -31,9 +31,10 @@ const clients = [
 
 export default function ClientLogos() {
   const { t, isAr } = useLanguage();
+  const items = [...clients, ...clients];
 
   return (
-    <section className="py-14 bg-[#0d1e35] border-y border-white/10 overflow-hidden">
+    <section className="py-14 bg-[#0d1e35] border-y border-white/10">
       {/* Headline */}
       <div className="container-wide mb-10">
         <p className={`text-center font-bold text-white ${isAr ? "text-3xl md:text-4xl" : "text-lg uppercase tracking-widest"}`}>
@@ -41,30 +42,25 @@ export default function ClientLogos() {
         </p>
       </div>
 
-      {/* Infinite ticker — uses CSS animation, never stops, no JS */}
-      <div
-        className="overflow-hidden"
-        style={{
-          maskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 8%, black 92%, transparent 100%)",
-        }}
-      >
+      {/* Ticker wrapper — hides overflow and adds fade edges */}
+      <div className="relative overflow-hidden">
         <div
-          style={{
-            display: "flex",
-            gap: "1.5rem",
-            width: "max-content",
-            animation: "ticker-scroll 50s linear infinite",
-          }}
-        >
-          {/* Triple the items so the seam is never visible */}
-          {[...clients, ...clients, ...clients].map((client, i) => (
+          className="absolute inset-y-0 left-0 w-24 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to right, #0d1e35, transparent)" }}
+        />
+        <div
+          className="absolute inset-y-0 right-0 w-24 z-10 pointer-events-none"
+          style={{ background: "linear-gradient(to left, #0d1e35, transparent)" }}
+        />
+
+        {/* Scrolling track */}
+        <div className="ticker-track flex gap-6 w-max">
+          {items.map((client, i) => (
             <div
               key={i}
               className="flex-shrink-0 px-5 py-2.5 rounded-xl bg-white/8 border border-white/10"
-              style={{ whiteSpace: "nowrap" }}
             >
-              <span className="text-white/70 font-medium text-sm">
+              <span className="text-white/70 font-medium text-sm whitespace-nowrap">
                 {isAr ? client.nameAr : client.name}
               </span>
             </div>

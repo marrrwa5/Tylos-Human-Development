@@ -237,10 +237,15 @@
   100% { transform: translateX(-33.333%); }
 }
 
-/* Client ticker: scrolls exactly one-third of the tripled list, loops perfectly */
+/* Client ticker */
 @keyframes ticker-scroll {
   0%   { transform: translateX(0); }
-  100% { transform: translateX(-33.333%); }
+  100% { transform: translateX(-50%); }
+}
+
+.ticker-track {
+  animation: ticker-scroll 40s linear infinite;
+  will-change: transform;
 }
 
 /* ─── RTL / Arabic overrides ──────────────────────────────── */

@@ -27,7 +27,7 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
   return (
     <Link
       href={`/courses/${course.slug}`}
-      className="group block bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full"
+      className="group flex flex-col bg-white rounded-2xl border border-gray-100 shadow-card hover:shadow-card-hover hover:-translate-y-2 transition-all duration-300 overflow-hidden h-full"
     >
       {/* Image header */}
       <div className={cn("relative overflow-hidden", compact ? "h-32" : "h-48")}>
@@ -80,8 +80,8 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
         )}
       </div>
 
-      {/* Body — flex column so certificate + button always pin to bottom */}
-      <div className="flex flex-col h-full p-5 gap-3">
+      {/* Body — flex-1 fills all remaining space after image */}
+      <div className="flex flex-col flex-1 p-5 gap-3">
         {/* Title */}
         <h3 className="font-sans text-base font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-turquoise transition-colors">
           {isAr && course.titleAr ? course.titleAr : course.title}

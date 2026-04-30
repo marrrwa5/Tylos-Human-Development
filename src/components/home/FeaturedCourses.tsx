@@ -30,9 +30,9 @@ export default function FeaturedCourses() {
           </div>
         </ScrollReveal>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch">
           {featured.map((course, index) => (
-            <ScrollReveal key={course.id} delay={index * 0.12}>
+            <ScrollReveal key={course.id} delay={index * 0.12} className="h-full">
               <CourseCard course={course} />
             </ScrollReveal>
           ))}

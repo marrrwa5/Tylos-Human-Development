@@ -60,7 +60,6 @@ export default async function CoursesPage() {
               titleAr="استكشف دوراتنا"
               subtitle="Professional development programs in Business Management, Information Technology, Accounting and Finance, and English Language. All programs are 100% funded."
               subtitleAr="برامج التطوير المهني في إدارة الأعمال وتقنية المعلومات والمحاسبة والمالية واللغة الإنجليزية. جميع البرامج ممولة 100%."
-              pills={["Est. 2002", "NOCN Accredited", "Cisco Partner", "IAB Certified", "100% Funded"]}
             />
           </ScrollReveal>
         </div>

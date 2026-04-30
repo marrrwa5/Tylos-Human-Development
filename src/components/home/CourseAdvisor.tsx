@@ -121,7 +121,7 @@ export default function CourseAdvisor() {
                 <div className="text-white/60 text-sm uppercase tracking-wider font-semibold mb-2">
                   {t("Smart Course Advisor", "مستشار الدورات الذكي")}
                 </div>
-                <h2 className="text-3xl md:text-4xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-sans)" }}>
+                <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-sans)" }}>
                   {t("Not Sure Which Course Is Right for You?", "لست متأكداً من الدورة المناسبة لك؟")}
                 </h2>
                 <p className="text-white/75 text-base leading-relaxed max-w-xl mb-6">

@@ -56,7 +56,7 @@ export default function CTABanner() {
               <p className="text-white/60 text-sm uppercase tracking-widest font-semibold mb-4">
                 {t("Ready to transform your business?", "هل أنت مستعد لتطوير عملك؟")}
               </p>
-              <h2 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "var(--font-sans)" }}>
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-6 leading-tight" style={{ fontFamily: "var(--font-sans)" }}>
                 {t("Invest in your employees", "استثمر في موظفيك")}
               </h2>
               <p className={`text-white/75 text-lg mb-10 ${isAr ? "whitespace-nowrap overflow-visible text-base" : "leading-relaxed"}`}>

@@ -80,18 +80,20 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
         )}
       </div>
 
-      {/* Body */}
-      <div className="flex flex-col flex-1 p-5 gap-4">
-        <div>
-          <h3 className="font-sans text-lg font-bold text-gray-900 leading-snug mb-2 group-hover:text-turquoise transition-colors">
-            {isAr && course.titleAr ? course.titleAr : course.title}
-          </h3>
-          {!compact && (
-            <p className="text-gray-brand text-sm leading-relaxed line-clamp-3">
-              {isAr && course.descriptionAr ? course.descriptionAr : course.description}
-            </p>
-          )}
-        </div>
+      {/* Body — flex column so certificate + button always pin to bottom */}
+      <div className="flex flex-col h-full p-5 gap-3">
+        {/* Title */}
+        <h3 className="font-sans text-base font-bold text-gray-900 leading-snug line-clamp-2 group-hover:text-turquoise transition-colors">
+          {isAr && course.titleAr ? course.titleAr : course.title}
+        </h3>
+
+        {/* Description — flex-1 fills remaining space, clamp-2 keeps equal height */}
+        {!compact && (
+          <p className="text-gray-brand text-sm leading-relaxed line-clamp-2 flex-1">
+            {isAr && course.descriptionAr ? course.descriptionAr : course.description}
+          </p>
+        )}
+        {compact && <div className="flex-1" />}
 
         {/* Meta */}
         <div className="flex flex-wrap gap-3 text-xs text-gray-brand">
@@ -105,20 +107,20 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
           </div>
         </div>
 
-        {/* Certificate type */}
+        {/* Certificate type — always same position */}
         <div className="text-xs font-medium text-gray-dark bg-gray-light/80 rounded-lg px-3 py-2">
           🏆 {course.certificateType}
         </div>
 
-        {/* Footer row — button always bottom-left in AR, right in EN */}
-        <div className="flex items-center mt-auto pt-2 border-t border-gray-100 justify-between">
+        {/* Read More button — always at bottom */}
+        <div className="pt-2 border-t border-gray-100 flex items-center justify-between">
           {course.isFunded && !isAr && (
             <span className="text-green-600 font-bold text-sm">{t("100% Funded", "تمويل 100%")}</span>
           )}
           {isAr && <span />}
           <span className="inline-flex items-center gap-1.5 px-4 py-2 bg-turquoise text-white text-sm font-semibold rounded-lg group-hover:bg-[#009ea0] transition-colors">
             {t("Read More", "اقرأ المزيد")}
-            <ArrowRight className={`h-3.5 w-3.5 transition-transform duration-200 ${isAr ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"}`} />
+            <ArrowRight className={`h-3.5 w-3.5 ${isAr ? "rotate-180 group-hover:-translate-x-0.5" : "group-hover:translate-x-0.5"} transition-transform duration-200`} />
           </span>
         </div>
       </div>

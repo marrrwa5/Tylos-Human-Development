@@ -173,7 +173,7 @@ export default function HeroSection() {
             <span style={isAr ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 400 } : {}}>
               {t("The First Step", "الخطوة الأولى")}
             </span><br />
-            <span className="text-gradient-brand">{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
+            <span className="text-gradient-brand" style={isAr ? { fontWeight: 700 } : {}}>{t("Starts At Tylos", "تبدأ في تايلوس")}</span>
           </motion.h1>
 
           {/* Subtitle */}

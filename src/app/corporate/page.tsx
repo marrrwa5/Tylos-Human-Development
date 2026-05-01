@@ -5,7 +5,7 @@ import CTAButton from "@/components/shared/CTAButton";
 import ClientLogos from "@/components/home/ClientLogos";
 import CorporateProcess from "@/components/corporate/CorporateProcess";
 import CorporateBenefits from "@/components/corporate/CorporateBenefits";
-import CorporateForm from "@/components/corporate/CorporateForm";
+import CTABanner from "@/components/home/CTABanner";
 import ImageStrip from "@/components/shared/ImageStrip";
 import PageBannerText from "@/components/shared/PageBannerText";
 import BilText from "@/components/shared/BilText";
@@ -91,8 +91,8 @@ export default function CorporatePage() {
 
       <ClientLogos />
 
-      {/* Inquiry Form at bottom */}
-      <CorporateForm />
+      {/* CTA Banner with built-in form */}
+      <CTABanner />
     </>
   );
 }

@@ -65,14 +65,10 @@ export default function CTABanner() {
                   "انضم إلى الشركات التي رفعت من أدائها مع مركز تايلوس للتنمية البشرية. برامج معتمدة دولياً. تمويل 100%."
                 )}
               </p>
-              <div className="flex flex-wrap gap-4 justify-center">
+              <div className="flex justify-center">
                 <CTAButton href="/corporate" variant="white" size="lg">
-                  {t("Corporate", "تدريب الشركات")}
+                  {t("Corporate Training", "تدريب الشركات")}
                   <ArrowRight className={`h-5 w-5 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
-                </CTAButton>
-                <CTAButton onClick={() => setBookingOpen(true)} variant="outline" size="lg" className="border-white/40 text-white hover:bg-white hover:text-blue-brand">
-                  <Calendar className="mr-2 h-4 w-4" />
-                  {t("Book a Meeting", "احجز اجتماعاً")}
                 </CTAButton>
               </div>
             </div>

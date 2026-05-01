@@ -54,7 +54,7 @@ export default function CourseDetailClient({ course }: Props) {
         }} />
 
         <div className="relative container-wide">
-          <Link href="/courses" className="inline-flex items-center gap-2 text-white/50 hover:text-turquoise text-sm mb-8 transition-colors">
+          <Link href="/courses" className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-turquoise text-white text-sm font-semibold mb-8 hover:bg-[#009ea0] transition-colors">
             <ArrowLeft className={`h-4 w-4 ${isAr ? "rotate-180" : ""}`} />
             {t("Back to All Courses", "العودة إلى جميع الدورات")}
           </Link>
@@ -330,15 +330,12 @@ export default function CourseDetailClient({ course }: Props) {
                     </div>
 
                     <div className="space-y-3">
-                      <CTAButton href={`/contact?course=${course.slug}`} variant="primary" size="lg" className="w-full">
-                        {t("Enroll Now", "سجّل الآن")}
-                      </CTAButton>
                       <CTAButton
-                        href={`https://api.whatsapp.com/send?phone=97334655220&text=${encodeURIComponent(isAr ? `مرحباً، أنا مهتم ببرنامج ${title}` : `Hello, I am interested in the ${course.title} programme.`)}`}
-                        variant="outline" size="md" className="w-full" external
+                        href={`https://api.whatsapp.com/send?phone=97334655220&text=${encodeURIComponent(isAr ? `مرحباً، أريد التسجيل في برنامج ${title}` : `Hello, I would like to enroll in the ${course.title} programme.`)}`}
+                        variant="primary" size="lg" className="w-full" external
                       >
                         <MessageCircle className="mr-2 h-4 w-4" />
-                        {t("Ask on WhatsApp", "تواصل عبر واتساب")}
+                        {t("Enroll Now", "سجّل الآن")}
                       </CTAButton>
                       {course.brochureUrl && (
                         <CTAButton href={course.brochureUrl} variant="outline" size="md" className="w-full" external>
@@ -381,6 +378,32 @@ export default function CourseDetailClient({ course }: Props) {
                       </div>
                     </div>
                   )}
+
+                  {/* Questions box */}
+                  <div className="bg-turquoise/5 rounded-xl p-5 border border-turquoise/20">
+                    <p className="text-sm font-bold text-gray-900 mb-1">
+                      {t("Any questions about this course?", "هل لديك استفسار عن هذه الدورة؟")}
+                    </p>
+                    <p className="text-xs text-gray-500 mb-4">
+                      {t("Our team is happy to help.", "فريقنا يسعده مساعدتك.")}
+                    </p>
+                    <div className="flex flex-col gap-2">
+                      <a
+                        href={`https://api.whatsapp.com/send?phone=97334655220&text=${encodeURIComponent(isAr ? `مرحباً، لدي استفسار عن برنامج ${title}` : `Hello, I have a question about the ${course.title} programme.`)}`}
+                        target="_blank" rel="noopener noreferrer"
+                        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg bg-[#25D366] text-white text-sm font-semibold hover:bg-[#20bb5a] transition-colors"
+                      >
+                        <MessageCircle className="h-4 w-4" />
+                        WhatsApp
+                      </a>
+                      <a
+                        href="mailto:info@thd.bh"
+                        className="flex items-center justify-center gap-2 w-full py-2.5 rounded-lg border border-turquoise/40 text-turquoise text-sm font-semibold hover:bg-turquoise hover:text-white transition-colors"
+                      >
+                        {t("Email Us", "راسلنا")}
+                      </a>
+                    </div>
+                  </div>
                 </div>
               </ScrollReveal>
             </div>
@@ -402,7 +425,11 @@ export default function CourseDetailClient({ course }: Props) {
               )}
             </p>
             <div className="flex flex-wrap gap-4 justify-center">
-              <CTAButton href={`/contact?course=${course.slug}`} variant="primary" size="lg">
+              <CTAButton
+                href={`https://api.whatsapp.com/send?phone=97334655220&text=${encodeURIComponent(isAr ? `مرحباً، أريد التسجيل في برنامج ${title}` : `Hello, I would like to enroll in the ${course.title} programme.`)}`}
+                variant="primary" size="lg" external
+              >
+                <MessageCircle className="mr-2 h-4 w-4" />
                 {t("Enroll Now", "سجّل الآن")}
               </CTAButton>
               <CTAButton href="/courses" variant="outline" size="lg">

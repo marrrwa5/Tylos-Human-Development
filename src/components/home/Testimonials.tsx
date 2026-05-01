@@ -69,12 +69,6 @@ export default function Testimonials() {
               subtitle={t("Real stories from professionals who transformed their careers at Tylos.", "قصص حقيقية من محترفين غيّروا مساراتهم المهنية في تايلوس.")}
               centered
             />
-            <div className="flex justify-center mt-6">
-              <CTAButton onClick={() => setFeedbackOpen(true)} variant="outline" size="sm">
-                <MessageSquarePlus className="h-4 w-4 mr-1.5" />
-                {t("Share Your Feedback", "شاركنا رأيك")}
-              </CTAButton>
-            </div>
           </div>
         </ScrollReveal>
       </div>

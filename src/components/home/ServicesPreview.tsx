@@ -62,7 +62,7 @@ export default function ServicesPreview() {
   const { isAr, t } = useLanguage();
 
   return (
-    <section className="section-padding bg-[#07111e]">
+    <section className="section-padding bg-white">
       <div className="container-wide">
         <ScrollReveal>
           <div className={`flex flex-col gap-4 mb-12 ${isAr ? "items-center text-center" : "md:flex-row md:items-end md:justify-between"}`}>
@@ -70,9 +70,8 @@ export default function ServicesPreview() {
               title={t("What We Offer", "خدماتنا")}
               subtitle={t("Beyond training, a full ecosystem of support services to help you succeed.", "ما وراء التدريب، منظومة متكاملة من الخدمات الداعمة لمساعدتك على النجاح.")}
               centered={isAr}
-              light
             />
-            <CTAButton href="/services" variant="outline" size="sm" className="flex-shrink-0 border-white/30 text-white hover:bg-white hover:text-blue-dark">
+            <CTAButton href="/services" variant="outline" size="sm" className="flex-shrink-0">
               {t("All Services", "جميع الخدمات")}
               <ArrowRight className={`h-4 w-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
             </CTAButton>
@@ -85,17 +84,17 @@ export default function ServicesPreview() {
             return (
               <ScrollReveal key={service.title} delay={index * 0.1}>
                 <Link href={service.href}>
-                  <div className="group p-6 rounded-2xl border border-white/10 hover:border-turquoise/40 hover:bg-white/5 hover:-translate-y-1 transition-all duration-300 h-full flex flex-col gap-4 cursor-pointer">
-                    <div className="w-12 h-12 rounded-xl bg-turquoise/15 flex items-center justify-center group-hover:bg-turquoise transition-colors duration-300">
+                  <div className="group p-6 rounded-2xl border border-gray-100 bg-gray-50 hover:border-turquoise/40 hover:bg-white hover:shadow-md hover:-translate-y-1 transition-all duration-300 h-full flex flex-col gap-4 cursor-pointer">
+                    <div className="w-12 h-12 rounded-xl bg-turquoise/10 flex items-center justify-center group-hover:bg-turquoise transition-colors duration-300">
                       {Icon && (
                         <Icon className="h-6 w-6 text-turquoise group-hover:text-white transition-colors" />
                       )}
                     </div>
                     <div>
-                      <h3 className="font-semibold text-white mb-2 group-hover:text-turquoise transition-colors text-sm">
+                      <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-turquoise transition-colors text-sm">
                         {isAr ? service.titleAr : service.title}
                       </h3>
-                      <p className="text-white/55 text-xs leading-relaxed">
+                      <p className="text-gray-500 text-xs leading-relaxed">
                         {isAr ? service.descriptionAr : service.description}
                       </p>
                     </div>

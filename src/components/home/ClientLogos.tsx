@@ -4,7 +4,7 @@ import { useLanguage } from "@/context/LanguageContext";
 
 const clients = [
   { name: "Jamal Showaiter Sweets", nameAr: "حلويات جمال شويطر" },
-  { name: "Mirza Alhelli", nameAr: "مرزا الحلي" },
+  { name: "Mirza Alhelli", nameAr: "ميرزا الحلي" },
   { name: "Bapco Gas", nameAr: "بابكو للغاز" },
   { name: "Effect Media", nameAr: "إيفكت ميديا" },
   { name: "Raffles Al Areen Palace", nameAr: "رافلز قصر العرين" },

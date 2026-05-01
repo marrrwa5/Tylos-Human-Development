@@ -18,20 +18,20 @@ const photos = [
 ];
 
 export default function ImageStrip() {
-  const items = [...photos, ...photos];
+  const items = [...photos, ...photos, ...photos];
 
   return (
     <section className="py-10 bg-white overflow-hidden">
       <style>{`
         @keyframes image-strip-loop {
           0%   { transform: translateX(0); }
-          100% { transform: translateX(-50%); }
+          100% { transform: translateX(-33.333%); }
         }
         .image-strip-track {
           display: flex;
           direction: ltr;
           width: max-content;
-          animation: image-strip-loop 25s linear infinite;
+          animation: image-strip-loop 55s linear infinite;
           will-change: transform;
         }
         .image-strip-item {

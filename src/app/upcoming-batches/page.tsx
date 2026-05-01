@@ -53,7 +53,10 @@ export default function UpcomingBatchesPage() {
             </p>
             <h1
               className="font-bold text-4xl md:text-6xl text-white mb-6"
-              style={{ fontFamily: "var(--font-sans)" }}
+              style={isAr
+                ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 900 }
+                : { fontFamily: "var(--font-sans)" }
+              }
             >
               {t("Upcoming Batches", "الدورات القادمة")}
             </h1>
@@ -170,7 +173,7 @@ export default function UpcomingBatchesPage() {
               <p className="text-gray-500 text-sm mb-4">{t("Looking for more programs?", "هل تبحث عن مزيد من البرامج؟")}</p>
               <CTAButton href="/courses" variant="primary" size="lg">
                 {t("Browse All Courses", "تصفح جميع الدورات")}
-                <ArrowRight className="ml-2 h-4 w-4" />
+                <ArrowRight className={`h-4 w-4 ${isAr ? "mr-2 rotate-180" : "ml-2"}`} />
               </CTAButton>
             </div>
           </ScrollReveal>

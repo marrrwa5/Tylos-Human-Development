@@ -82,7 +82,10 @@ export default function ContactPage() {
             </p>
             <h1
               className="font-bold text-4xl md:text-6xl text-white mb-6"
-              style={{ fontFamily: "var(--font-sans)" }}
+              style={isAr
+                ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 900 }
+                : { fontFamily: "var(--font-sans)" }
+              }
             >
               {t("Get in Touch", "تواصل معنا")}
             </h1>
@@ -99,29 +102,48 @@ export default function ContactPage() {
       {/* ── Contact cards ── */}
       <section className="py-12 bg-white border-b border-gray-100">
         <div className="container-wide">
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 items-stretch">
             {contactCards.map((card, index) => {
               const Icon = card.icon;
-              return (
-                <ScrollReveal key={card.title} delay={index * 0.1}>
-                  <div className={`p-6 rounded-2xl border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${
-                    card.color === "turquoise" ? "hover:border-turquoise/30" : card.color === "blue" ? "hover:border-blue-brand/30" : "hover:border-green-300"
+              const lines = isAr && "linesAr" in card && card.linesAr ? card.linesAr as string[] : card.lines;
+              const cardLinks: Record<string, string> = {
+                Phone: "tel:+97317626484",
+                WhatsApp: "https://api.whatsapp.com/send?phone=97334655220",
+                Email: "mailto:info@thd.bh",
+              };
+              const href = cardLinks[card.title];
+
+              const CardWrapper = ({ children }: { children: React.ReactNode }) =>
+                href ? (
+                  <a href={href} target={card.title === "WhatsApp" ? "_blank" : undefined} rel="noopener noreferrer"
+                    className={`flex flex-col h-full p-6 rounded-2xl border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${
+                      card.color === "turquoise" ? "hover:border-turquoise/30" : card.color === "blue" ? "hover:border-blue-brand/30" : "hover:border-green-300"
+                    }`}>
+                    {children}
+                  </a>
+                ) : (
+                  <div className={`flex flex-col h-full p-6 rounded-2xl border border-gray-100 text-center hover:shadow-md hover:-translate-y-1 transition-all duration-300 ${
+                    card.color === "turquoise" ? "hover:border-turquoise/30" : "hover:border-green-300"
                   }`}>
+                    {children}
+                  </div>
+                );
+
+              return (
+                <ScrollReveal key={card.title} delay={index * 0.1} className="h-full">
+                  <CardWrapper>
                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center mx-auto mb-4 ${
                       card.color === "turquoise" ? "bg-turquoise/10" : card.color === "blue" ? "bg-blue-50" : "bg-green-50"
                     }`}>
                       <Icon className={`h-6 w-6 ${card.color === "turquoise" ? "text-turquoise" : card.color === "blue" ? "text-blue-brand" : "text-green-600"}`} />
                     </div>
-                    <h3 className="font-semibold text-gray-900 mb-2 text-sm">{isAr && card.titleAr ? card.titleAr : card.title}</h3>
-                    {(isAr && "linesAr" in card && card.linesAr ? card.linesAr as string[] : card.lines).map((line) =>
-                      card.link ? (
-                        <a key={line} href={card.link} target="_blank" rel="noopener noreferrer"
-                          className="block text-sm text-gray-500 hover:text-turquoise transition-colors">{line}</a>
-                      ) : (
+                    <h3 className="font-semibold text-gray-900 mb-3 text-sm">{isAr && card.titleAr ? card.titleAr : card.title}</h3>
+                    <div className="flex-1 flex flex-col justify-center gap-1">
+                      {lines.map((line) => (
                         <p key={line} className="text-sm text-gray-500">{line}</p>
-                      )
-                    )}
-                  </div>
+                      ))}
+                    </div>
+                  </CardWrapper>
                 </ScrollReveal>
               );
             })}
@@ -132,11 +154,11 @@ export default function ContactPage() {
       {/* ── Map + Form ── */}
       <section className="section-padding bg-[#f8fafc]">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
 
             {/* Map column */}
             <ScrollReveal direction="left" className="lg:col-span-2">
-              <div className="space-y-4 h-full">
+              <div className="flex flex-col gap-4">
                 {/* Map embed */}
                 <div className="bg-white rounded-2xl overflow-hidden shadow-sm border border-gray-100 aspect-square">
                   <iframe
@@ -188,6 +210,7 @@ export default function ContactPage() {
                   title={t("Let's Keep in Touch", "تواصل معنا")}
                   subtitle={t("We're more than happy to help you with any inquiry.", "يسعدنا مساعدتك في أي استفسار.")}
                   centered={false}
+                  className={isAr ? "text-right" : ""}
                 />
 
                 <form onSubmit={handleSubmit(onSubmit)} className="mt-8 space-y-5">

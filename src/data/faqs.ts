@@ -108,6 +108,8 @@ export const policies = [
     titleAr: "سياسة الحضور",
     content:
       "A minimum attendance of 80% is required for all programs. Participants who fail to meet this requirement may not be eligible to sit for assessments or receive their certificates. Absences must be communicated in advance.",
+    contentAr:
+      "يُشترط حضور 80٪ كحد أدنى في جميع البرامج. المشاركون الذين لا يستوفون هذا الشرط قد لا يكونون مؤهلين لأداء التقييمات أو استلام شهاداتهم. يجب إبلاغنا بالغياب مسبقاً.",
   },
   {
     id: "2",
@@ -115,6 +117,8 @@ export const policies = [
     titleAr: "قواعد السلوك",
     content:
       "All participants are expected to maintain professional conduct throughout their training. Disruptive behavior, harassment, or academic dishonesty will result in immediate removal from the program without refund.",
+    contentAr:
+      "يُتوقع من جميع المشاركين الحفاظ على السلوك المهني طوال فترة التدريب. السلوك المشاغب أو التحرش أو الغش الأكاديمي سيؤدي إلى الإزالة الفورية من البرنامج دون استرداد.",
   },
   {
     id: "3",
@@ -122,6 +126,8 @@ export const policies = [
     titleAr: "خصوصية البيانات",
     content:
       "Tylos Human Development Center is committed to protecting your personal data. We collect and process information solely for the purpose of delivering our training services and complying with accreditation requirements. Your data is never shared with third parties without consent.",
+    contentAr:
+      "يلتزم مركز تايلوس للتنمية البشرية بحماية بياناتك الشخصية. نجمع المعلومات ونعالجها فقط لغرض تقديم خدمات التدريب والامتثال لمتطلبات الاعتماد. لا تُشارك بياناتك مع أطراف ثالثة دون موافقة.",
   },
   {
     id: "4",
@@ -129,5 +135,7 @@ export const policies = [
     titleAr: "ذوو الاحتياجات الخاصة",
     content:
       "We are committed to providing equal access to all learners. If you have a disability or special learning need, please inform us at the time of enrollment so we can make appropriate accommodations.",
+    contentAr:
+      "نلتزم بتوفير وصول متكافئ لجميع المتعلمين. إذا كانت لديك إعاقة أو احتياج تعليمي خاص، يُرجى إبلاغنا عند التسجيل حتى نتمكن من اتخاذ الترتيبات المناسبة.",
   },
 ];

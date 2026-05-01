@@ -10,7 +10,7 @@ import { useLanguage } from "@/context/LanguageContext";
 export default function AboutPreview() {
   const { t } = useLanguage();
   return (
-    <section className="section-padding bg-[#07111e]">
+    <section className="section-padding bg-white">
       <div className="container-wide">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
 
@@ -35,7 +35,7 @@ export default function AboutPreview() {
                   className="font-bold text-3xl md:text-4xl lg:text-5xl leading-tight mb-5"
                   style={{ fontFamily: "var(--font-sans)" }}
                 >
-                  <span className="text-white">{t("About ", "عن ")} </span>
+                  <span className="text-gray-900">{t("About ", "عن ")} </span>
                   <span
                     style={{
                       background: "linear-gradient(90deg, #00B3A4 0%, #0090e0 50%, #00B3A4 100%)",
@@ -55,7 +55,7 @@ export default function AboutPreview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-white/60 leading-relaxed text-base"
+                  className="text-gray-500 leading-relaxed text-base"
                 >
                   {t(
                     "Tylos Human Development Center, established in 2002, is a trusted training provider dedicated to empowering individuals and organizations through skill development and talent growth. With a strong focus on practical, career-oriented learning, Tylos delivers high-quality, internationally accredited programs in fields such as Business Management, Marketing, Human Resources, Customer Service, Artificial Intelligence, and Information Technology.",
@@ -73,18 +73,18 @@ export default function AboutPreview() {
                 transition={{ duration: 0.5, delay: 0.3 }}
               >
                 {/* Row 1 */}
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-turquoise/15 flex items-center justify-center flex-shrink-0">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 border border-gray-100">
+                  <div className="w-8 h-8 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
                     <Award className="h-4 w-4 text-turquoise" />
                   </div>
-                  <span className="text-sm font-medium text-white/80">{t("20+ Years of Excellence", "+20 عاماً من التميز")}</span>
+                  <span className="text-sm font-medium text-gray-700">{t("20+ Years of Excellence", "+20 عاماً من التميز")}</span>
                 </div>
 
-                <div className="flex items-center gap-3 p-3 rounded-lg bg-white/5 border border-white/10">
-                  <div className="w-8 h-8 rounded-lg bg-turquoise/15 flex items-center justify-center flex-shrink-0">
+                <div className="flex items-center gap-3 p-3 rounded-lg bg-gray-50 border border-gray-100">
+                  <div className="w-8 h-8 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0">
                     <Globe className="h-4 w-4 text-turquoise" />
                   </div>
-                  <span className="text-sm font-medium text-white/80">{t("4 International Accreditations", "4 اعتمادات دولية")}</span>
+                  <span className="text-sm font-medium text-gray-700">{t("4 International Accreditations", "4 اعتمادات دولية")}</span>
                 </div>
 
                 {/* Row 2 */}
@@ -96,7 +96,7 @@ export default function AboutPreview() {
                 <CTAButton
                   href="/pdfs/company-profile.pdf"
                   variant="outline"
-                  className="w-full justify-center border-white/30 text-white hover:bg-white hover:text-blue-dark"
+                  className="w-full justify-center"
                   external
                 >
                   <Download className="mr-2 h-4 w-4" />

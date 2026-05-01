@@ -25,10 +25,10 @@ export default function UpcomingCourses() {
   };
 
   return (
-    <section className="section-padding bg-white">
+    <section className="section-padding bg-[#0d1e35]">
       <div className="container-wide">
         {/* Light frame */}
-        <div className="relative rounded-3xl border border-turquoise/30 bg-[#f8fafc] p-6 md:p-10 shadow-sm">
+        <div className="relative rounded-3xl border border-turquoise/40 bg-turquoise/[0.07] p-6 md:p-10 shadow-[0_0_80px_rgba(0,179,164,0.14),inset_0_1px_0_rgba(0,179,164,0.15)]">
         <ScrollReveal>
           <SectionHeading
             title={t("Upcoming Course Batches", "الدفعات القادمة")}

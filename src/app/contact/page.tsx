@@ -154,7 +154,7 @@ export default function ContactPage() {
       {/* ── Map + Form ── */}
       <section className="section-padding bg-[#f8fafc]">
         <div className="container-wide">
-          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10 items-start">
+          <div className="grid grid-cols-1 lg:grid-cols-5 gap-10">
 
             {/* Map column */}
             <ScrollReveal direction="left" className="lg:col-span-2">

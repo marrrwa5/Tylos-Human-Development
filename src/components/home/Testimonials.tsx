@@ -41,7 +41,7 @@ export default function Testimonials() {
   const items = [...testimonials, ...testimonials, ...testimonials];
 
   return (
-    <section className="section-padding bg-[#07111e] overflow-hidden">
+    <section className="section-padding bg-[#f8fafc] overflow-hidden">
       <style>{`
         @keyframes reviews-loop {
           0%   { transform: translateX(0); }
@@ -67,11 +67,10 @@ export default function Testimonials() {
             <SectionHeading
               title={t("What Our Graduates Said", "ماذا قال متدربينا")}
               subtitle={t("Real stories from professionals who transformed their careers at Tylos.", "قصص حقيقية من محترفين غيّروا مساراتهم المهنية في تايلوس.")}
-              light
               centered
             />
             <div className="flex justify-center mt-6">
-              <CTAButton onClick={() => setFeedbackOpen(true)} variant="outline" size="sm" className="border-white/25 text-white hover:bg-white hover:text-blue-dark">
+              <CTAButton onClick={() => setFeedbackOpen(true)} variant="outline" size="sm">
                 <MessageSquarePlus className="h-4 w-4 mr-1.5" />
                 {t("Share Your Feedback", "شاركنا رأيك")}
               </CTAButton>
@@ -90,19 +89,19 @@ export default function Testimonials() {
       >
         <div className="reviews-track px-3">
           {items.map((review, i) => (
-            <div key={i} className="review-card relative bg-white/5 rounded-2xl border border-white/10 p-6 flex flex-col gap-4 hover:border-turquoise/30 transition-colors duration-300">
-              <Quote className="absolute top-4 right-4 h-8 w-8 text-turquoise/20" />
+            <div key={i} className="review-card relative bg-white rounded-2xl border border-gray-100 shadow-sm p-6 flex flex-col gap-4 hover:border-turquoise/30 hover:shadow-md transition-all duration-300">
+              <Quote className="absolute top-4 right-4 h-8 w-8 text-turquoise/15" />
               <Stars rating={review.rating} />
-              <blockquote className="text-white/80 text-sm leading-relaxed flex-1 italic">
+              <blockquote className="text-gray-600 text-sm leading-relaxed flex-1 italic">
                 &ldquo;{isAr && review.quoteAr ? review.quoteAr : review.quote}&rdquo;
               </blockquote>
-              <div className="flex items-center gap-3 pt-4 border-t border-white/10">
+              <div className="flex items-center gap-3 pt-4 border-t border-gray-100">
                 <div className="w-10 h-10 rounded-full gradient-brand flex items-center justify-center text-white font-bold text-base flex-shrink-0">
                   {(isAr && review.nameAr ? review.nameAr : review.name).charAt(0)}
                 </div>
                 <div>
-                  <div className="font-semibold text-white text-sm">{isAr && review.nameAr ? review.nameAr : review.name}</div>
-                  <div className="text-xs text-white/45">{review.role} · {review.company}</div>
+                  <div className="font-semibold text-gray-900 text-sm">{isAr && review.nameAr ? review.nameAr : review.name}</div>
+                  <div className="text-xs text-gray-400">{review.role} · {review.company}</div>
                 </div>
               </div>
             </div>

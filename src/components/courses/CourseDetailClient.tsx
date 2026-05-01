@@ -75,7 +75,10 @@ export default function CourseDetailClient({ course }: Props) {
             ))}
           </div>
 
-          <h1 className="font-bold text-3xl md:text-5xl text-white mb-5 max-w-3xl leading-tight">
+          <h1
+            className="font-bold text-3xl md:text-5xl text-white mb-5 max-w-3xl leading-tight"
+            style={isAr ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 900 } : {}}
+          >
             {title}
           </h1>
 
@@ -87,7 +90,7 @@ export default function CourseDetailClient({ course }: Props) {
             {[
               { icon: Clock, label: course.duration },
               { icon: Globe, label: course.language },
-              { icon: BookOpen, label: course.level },
+              { icon: BookOpen, label: isAr && course.level === "All Levels" ? "جميع المستويات" : course.level },
               { icon: GraduationCap, label: course.certificateType },
             ].map(({ icon: Icon, label }) => (
               <div key={label} className="flex items-center gap-2 bg-white/8 border border-white/12 rounded-full px-4 py-2 text-white/80 text-sm">
@@ -126,8 +129,8 @@ export default function CourseDetailClient({ course }: Props) {
                   <div className="mt-6 grid grid-cols-2 md:grid-cols-4 gap-4">
                     {[
                       { label: t("Duration", "المدة"), value: course.duration },
-                      { label: t("Language", "اللغة"), value: isAr ? (course.language === "English" ? "إنجليزي" : course.language === "Arabic" ? "عربي" : "ثنائي اللغة") : course.language },
-                      { label: t("Level", "المستوى"), value: course.level },
+                      { label: t("Language", "اللغة"), value: isAr ? (course.language === "English" ? "إنجليزي" : course.language === "Arabic" ? "عربي" : "عربي / إنجليزي") : course.language },
+                      { label: t("Level", "المستوى"), value: isAr && course.level === "All Levels" ? "جميع المستويات" : course.level },
                       { label: t("Start Date", "تاريخ البدء"), value: startDateShort },
                     ].map(({ label, value }) => (
                       <div key={label} className="bg-gray-50 rounded-xl p-3">
@@ -167,7 +170,7 @@ export default function CourseDetailClient({ course }: Props) {
                 <div className="bg-white rounded-2xl p-8 shadow-sm border border-gray-100">
                   <div className="flex items-center gap-3 mb-5">
                     <div className="w-9 h-9 rounded-lg bg-turquoise/10 flex items-center justify-center flex-shrink-0"><Users className="h-5 w-5 text-turquoise" /></div>
-                    <h2 className="font-bold text-xl text-gray-900">{t("Who Should Attend?", "من يجب أن يحضر؟")}</h2>
+                    <h2 className="font-bold text-xl text-gray-900">{t("Who Should Attend?", "الفئة المستهدفة")}</h2>
                   </div>
                   <p className="text-gray-400 text-sm mb-5">{t("This programme is designed for:", "تم تصميم هذا البرنامج لـ:")}</p>
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
@@ -300,7 +303,7 @@ export default function CourseDetailClient({ course }: Props) {
                         { Icon: Clock, label: t("Duration", "المدة"), value: course.duration },
                         { Icon: Calendar, label: t("Start Date", "تاريخ البدء"), value: startDate },
                         { Icon: Globe, label: t("Language", "اللغة"), value: course.language },
-                        { Icon: BookOpen, label: t("Level", "المستوى"), value: course.level },
+                        { Icon: BookOpen, label: t("Level", "المستوى"), value: isAr && course.level === "All Levels" ? "جميع المستويات" : course.level },
                         { Icon: Target, label: t("Schedule", "الجدول"), value: isAr && course.scheduleAr ? course.scheduleAr : course.schedule },
                       ].map(({ Icon, label, value }) => (
                         <div key={label} className="flex items-start gap-3 text-sm">

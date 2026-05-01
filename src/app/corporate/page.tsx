@@ -4,7 +4,8 @@ import ScrollReveal from "@/components/shared/ScrollReveal";
 import CTAButton from "@/components/shared/CTAButton";
 import ClientLogos from "@/components/home/ClientLogos";
 import CorporateProcess from "@/components/corporate/CorporateProcess";
-import CorporateClientSections from "@/components/corporate/CorporateClientSections";
+import CorporateBenefits from "@/components/corporate/CorporateBenefits";
+import CorporateForm from "@/components/corporate/CorporateForm";
 import PageBannerText from "@/components/shared/PageBannerText";
 import BilText from "@/components/shared/BilText";
 
@@ -68,7 +69,7 @@ export default function CorporatePage() {
             />
             <div className="flex gap-4 flex-wrap justify-center mt-8 mb-10">
               <CTAButton href="#contact-form" variant="primary" size="lg">
-                Request a Proposal
+                <BilText en="Request a Proposal" ar="طلب اقتراح" />
                 <ArrowRight className="ml-2 h-4 w-4" />
               </CTAButton>
               <CTAButton href="/courses" variant="outline" size="lg" className="border-white/30 text-white hover:bg-white/10">
@@ -79,12 +80,16 @@ export default function CorporatePage() {
         </div>
       </section>
 
-      <CorporateClientSections />
+      {/* Benefits only — form is at bottom */}
+      <CorporateBenefits />
 
-      {/* ── Process Timeline ── */}
+      {/* How It Works immediately after benefits */}
       <CorporateProcess />
 
       <ClientLogos />
+
+      {/* Inquiry Form at bottom */}
+      <CorporateForm />
     </>
   );
 }

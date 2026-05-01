@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import ScrollReveal from "@/components/shared/ScrollReveal";
-import SectionHeading from "@/components/shared/SectionHeading";
 import ServicesGrid from "@/components/services/ServicesGrid";
+import ServicesPageContent from "@/components/services/ServicesPageContent";
 import CTABanner from "@/components/home/CTABanner";
 import PageBannerText from "@/components/shared/PageBannerText";
 
@@ -61,27 +61,13 @@ export default function ServicesPage() {
               titleAr="خدماتنا"
               subtitle="From choosing the right course to landing your next role, we support you at every step of your professional development journey."
               subtitleAr="من اختيار الدورة المناسبة حتى الحصول على وظيفتك القادمة، ندعمك في كل خطوة من رحلة تطورك المهني."
-              pills={["Est. 2002", "NOCN Accredited", "Cisco Partner", "IAB Certified", "100% Funded"]}
             />
           </ScrollReveal>
         </div>
       </section>
 
       {/* ── Services Grid ── */}
-      <section className="section-padding bg-[#f8fafc]">
-        <div className="container-wide">
-          <ScrollReveal>
-            <SectionHeading
-              title="What We Offer"
-              subtitle="A complete ecosystem of support services designed to help you grow, succeed, and thrive in your career."
-            />
-          </ScrollReveal>
-
-          <div className="mt-14">
-            <ServicesGrid />
-          </div>
-        </div>
-      </section>
+      <ServicesPageContent />
 
       <CTABanner />
     </>

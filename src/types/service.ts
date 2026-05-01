@@ -7,6 +7,8 @@ export interface Service {
   description: string;
   descriptionAr: string;
   fullDescription: string;
+  fullDescriptionAr?: string;
   benefits: string[];
+  benefitsAr?: string[];
   isCorporate: boolean;
 }

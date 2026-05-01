@@ -17,35 +17,45 @@ const photos = [
   "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80",
 ];
 
+// 3 copies concatenated
+const allItems = [...photos, ...photos, ...photos];
+
 export default function ImageStrip() {
   return (
-    <section className="py-10 bg-white">
+    <section className="py-10 bg-white overflow-hidden">
       <style>{`
-        @keyframes img-marquee {
+        @keyframes strip-scroll {
           from { transform: translateX(0); }
-          to   { transform: translateX(-50%); }
+          to   { transform: translateX(-33.333%); }
         }
-        .img-marquee-track {
+
+        .strip-track {
           display: flex;
-          gap: 16px;
-          width: max-content;
-          animation: img-marquee 50s linear infinite;
-          will-change: transform;
+          flex-wrap: nowrap;
           direction: ltr;
+          /* 3 copies × 100% of one copy = total 300% effective width */
+          width: max-content;
+          animation: strip-scroll 55s linear infinite;
+          will-change: transform;
         }
-        .img-marquee-thumb {
+
+        .strip-thumb {
           flex-shrink: 0;
           width: 260px;
           height: 180px;
+          margin-right: 16px;
           border-radius: 12px;
           overflow: hidden;
           display: block;
+          text-decoration: none;
         }
-        .img-marquee-thumb img {
+
+        .strip-thumb img {
           width: 100%;
           height: 100%;
           object-fit: cover;
           display: block;
+          flex-shrink: 0;
         }
       `}</style>
 
@@ -56,18 +66,11 @@ export default function ImageStrip() {
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         }}
       >
-        {/*
-          Two identical copies in one flex row.
-          translateX(-50%) moves exactly one copy width — the browser
-          computes the real width so there is ZERO drift and ZERO gap.
-          When the animation resets to 0, copy 2 is at the same position
-          copy 1 started — invisible seam, infinite loop.
-        */}
-        <div className="img-marquee-track">
-          {[...photos, ...photos].map((src, i) => (
-            <Link key={i} href="/media" className="img-marquee-thumb">
+        <div className="strip-track">
+          {allItems.map((src, i) => (
+            <Link key={i} href="/media" className="strip-thumb">
               {/* eslint-disable-next-line @next/next/no-img-element */}
-              <img src={src} alt="" />
+              <img src={src} alt="" draggable={false} />
             </Link>
           ))}
         </div>

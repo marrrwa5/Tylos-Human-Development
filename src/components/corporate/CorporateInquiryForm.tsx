@@ -141,23 +141,36 @@ export default function CorporateInquiryForm() {
               </div>
             </div>
 
-            {/* Row 4: Number of employees to train */}
-            <div className="space-y-1.5">
+            {/* Row 4: Number of employees to train — pill selector */}
+            <div className="space-y-3">
               <label className="text-sm font-semibold text-gray-700 flex items-center gap-1.5">
                 <Users className="h-3.5 w-3.5 text-turquoise" />
                 {t("Number of Employees to Train *", "عدد الموظفين المرشحين للتدريب *")}
               </label>
-              <select
-                required value={form.employees} onChange={(e) => set("employees", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-turquoise focus:ring-2 focus:ring-turquoise/20 bg-white truncate"
-              >
-                <option value="">{t("Select range", "اختر")}</option>
-                <option value="1-10">{t("Less than 10", "أقل من 10")}</option>
-                <option value="10-25">10 – 25</option>
-                <option value="26-50">26 – 50</option>
-                <option value="51-100">51 – 100</option>
-                <option value="100+">{t("More than 100", "أكثر من 100")}</option>
-              </select>
+              <div className="flex flex-wrap gap-2">
+                {[
+                  { value: "1-9",   label: "1 – 9" },
+                  { value: "10-25", label: "10 – 25" },
+                  { value: "26-50", label: "26 – 50" },
+                  { value: "51-100",label: "51 – 100" },
+                  { value: "100+",  label: "100+" },
+                ].map((opt) => (
+                  <button
+                    key={opt.value}
+                    type="button"
+                    onClick={() => set("employees", opt.value)}
+                    className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-all duration-200 ${
+                      form.employees === opt.value
+                        ? "bg-turquoise text-white border-turquoise shadow-sm"
+                        : "bg-white text-gray-600 border-gray-200 hover:border-turquoise hover:text-turquoise"
+                    }`}
+                  >
+                    {opt.label}
+                  </button>
+                ))}
+              </div>
+              {/* Hidden required input for form validation */}
+              <input type="text" required value={form.employees} readOnly className="sr-only" aria-hidden />
             </div>
 
             {/* Message */}

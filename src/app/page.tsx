@@ -24,9 +24,9 @@ export default function HomePage() {
       <AudienceSegments />
       <AccreditationLogos />
       <FeaturedCourses />
+      <CourseAdvisor />
       <AboutPreview />
       <UpcomingCourses />
-      <CourseAdvisor />
       <ServicesPreview />
       <ClientLogos />
       <Testimonials />

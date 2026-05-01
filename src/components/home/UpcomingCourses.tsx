@@ -33,6 +33,7 @@ export default function UpcomingCourses() {
           <SectionHeading
             title={t("Upcoming Course Batches", "الدفعات القادمة")}
             subtitle={t("Enrollment is opening soon for these programs. Register your interest and we'll notify you.", "سجل اهتمامك، سنتواصل معك عند فتح باب التسجيل")}
+            light
           />
         </ScrollReveal>
 

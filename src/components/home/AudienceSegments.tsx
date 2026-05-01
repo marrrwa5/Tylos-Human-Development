@@ -109,7 +109,7 @@ export default function AudienceSegments() {
                 key={seg.title}
                 variants={cardVariants}
                 whileHover={{ y: -8, transition: { type: "spring", stiffness: 300, damping: 20 } }}
-                className="group bg-white/5 rounded-2xl p-8 border border-white/10 hover:border-turquoise/40 hover:bg-white/[0.08] transition-colors duration-300 flex flex-col"
+                className="group bg-white/5 rounded-2xl p-5 md:p-8 border border-white/10 hover:border-turquoise/40 hover:bg-white/[0.08] transition-colors duration-300 flex flex-col"
               >
                 {/* Icon */}
                 <div

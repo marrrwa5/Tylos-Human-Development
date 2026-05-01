@@ -149,7 +149,7 @@ export default function HeroSection() {
       </div>
 
       {/* ── Text content ── */}
-      <div className="relative container-wide w-full pt-[100px] pb-24">
+      <div className="relative container-wide w-full pt-20 md:pt-[100px] pb-16 md:pb-24 px-5 md:px-0">
         <div className="max-w-xl">
 
           {/* Badge */}
@@ -157,18 +157,18 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-6 inline-flex items-center gap-2 px-4 py-2 rounded-full border border-turquoise/30 bg-turquoise/10 text-turquoise text-sm font-medium"
+            className="mb-5 inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 rounded-full border border-turquoise/30 bg-turquoise/10 text-turquoise text-xs md:text-sm font-medium"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-turquoise animate-pulse" />
-            {t("A Trusted Accredited Training Center In Bahrain · Est. 2002", "مركز تدريب معتمد وموثوق في البحرين — تأسس عام 2002")}
+            <span className="w-1.5 h-1.5 rounded-full bg-turquoise animate-pulse flex-shrink-0" />
+            <span className="line-clamp-1">{t("A Trusted Accredited Training Center In Bahrain · Est. 2002", "مركز تدريب معتمد وموثوق في البحرين — تأسس عام 2002")}</span>
           </motion.div>
 
-          {/* Headline — both lines share the same font via CSS h1 rule */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 40 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.1 }}
-            className="text-4xl sm:text-5xl md:text-6xl font-bold text-white leading-tight mb-6"
+            className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-5 md:mb-6"
           >
             <span style={isAr ? { fontFamily: '"BahijTheSans", system-ui, sans-serif', fontWeight: 400 } : {}}>
               {t("The First Step", "الخطوة الأولى")}
@@ -184,7 +184,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
-            className="text-white/70 text-lg max-w-lg mb-10 leading-relaxed"
+            className="text-white/70 text-base md:text-lg max-w-lg mb-8 md:mb-10 leading-relaxed"
           >
             {t(
               "Professional training programs across diverse industries, officially accredited by the Ministry of Labour, offering internationally recognized certifications in the Kingdom of Bahrain.",

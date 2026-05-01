@@ -17,39 +17,31 @@ const photos = [
   "https://images.unsplash.com/photo-1497366216548-37526070297c?w=600&auto=format&fit=crop&q=80",
 ];
 
-const IMG_W = 260;   // px width of each image
-const GAP   = 16;    // px gap between images
-const STEP  = IMG_W + GAP;
-const TOTAL = photos.length * STEP; // one full set width
-
 export default function ImageStrip() {
-  // Duplicate once — we translate by exactly TOTAL px so the reset is invisible
-  const items = [...photos, ...photos];
-
   return (
-    <section className="py-10 bg-white overflow-hidden">
+    <section className="py-10 bg-white">
       <style>{`
-        @keyframes img-strip {
-          0%   { transform: translateX(0); }
-          100% { transform: translateX(-${TOTAL}px); }
+        @keyframes img-marquee {
+          from { transform: translateX(0); }
+          to   { transform: translateX(-50%); }
         }
-        .img-strip-inner {
+        .img-marquee-track {
           display: flex;
-          direction: ltr;
-          /* width must accommodate both copies exactly */
-          width: ${items.length * STEP}px;
-          animation: img-strip ${Math.round(photos.length * 4.5)}s linear infinite;
+          gap: 16px;
+          width: max-content;
+          animation: img-marquee 50s linear infinite;
           will-change: transform;
+          direction: ltr;
         }
-        .img-strip-thumb {
+        .img-marquee-thumb {
           flex-shrink: 0;
-          width: ${IMG_W}px;
+          width: 260px;
           height: 180px;
-          margin-right: ${GAP}px;
           border-radius: 12px;
           overflow: hidden;
+          display: block;
         }
-        .img-strip-thumb img {
+        .img-marquee-thumb img {
           width: 100%;
           height: 100%;
           object-fit: cover;
@@ -64,9 +56,16 @@ export default function ImageStrip() {
           WebkitMaskImage: "linear-gradient(to right, transparent 0%, black 5%, black 95%, transparent 100%)",
         }}
       >
-        <div className="img-strip-inner">
-          {items.map((src, i) => (
-            <Link key={i} href="/media" className="img-strip-thumb" style={{ textDecoration: "none" }}>
+        {/*
+          Two identical copies in one flex row.
+          translateX(-50%) moves exactly one copy width — the browser
+          computes the real width so there is ZERO drift and ZERO gap.
+          When the animation resets to 0, copy 2 is at the same position
+          copy 1 started — invisible seam, infinite loop.
+        */}
+        <div className="img-marquee-track">
+          {[...photos, ...photos].map((src, i) => (
+            <Link key={i} href="/media" className="img-marquee-thumb">
               {/* eslint-disable-next-line @next/next/no-img-element */}
               <img src={src} alt="" />
             </Link>

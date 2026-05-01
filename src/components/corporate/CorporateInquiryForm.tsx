@@ -149,13 +149,13 @@ export default function CorporateInquiryForm() {
               </label>
               <select
                 required value={form.employees} onChange={(e) => set("employees", e.target.value)}
-                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-turquoise focus:ring-2 focus:ring-turquoise/20 bg-white"
+                className="w-full px-4 py-3 border border-gray-200 rounded-xl text-sm focus:outline-none focus:border-turquoise focus:ring-2 focus:ring-turquoise/20 bg-white truncate"
               >
-                <option value="">{t("Select range", "اختر النطاق")}</option>
+                <option value="">{t("Select range", "اختر")}</option>
                 <option value="1-10">{t("Less than 10", "أقل من 10")}</option>
-                <option value="10-25">{t("10 – 25", "10 – 25")}</option>
-                <option value="26-50">{t("26 – 50", "26 – 50")}</option>
-                <option value="51-100">{t("51 – 100", "51 – 100")}</option>
+                <option value="10-25">10 – 25</option>
+                <option value="26-50">26 – 50</option>
+                <option value="51-100">51 – 100</option>
                 <option value="100+">{t("More than 100", "أكثر من 100")}</option>
               </select>
             </div>

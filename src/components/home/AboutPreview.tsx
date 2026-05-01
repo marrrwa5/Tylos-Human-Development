@@ -55,7 +55,7 @@ export default function AboutPreview() {
                   whileInView={{ opacity: 1, y: 0 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.6, delay: 0.2 }}
-                  className="text-gray-500 leading-relaxed text-base"
+                  className="hidden md:block text-gray-500 leading-relaxed text-base"
                 >
                   {t(
                     "Tylos Human Development Center, established in 2002, is a trusted training provider dedicated to empowering individuals and organizations through skill development and talent growth. With a strong focus on practical, career-oriented learning, Tylos delivers high-quality, internationally accredited programs in fields such as Business Management, Marketing, Human Resources, Customer Service, Artificial Intelligence, and Information Technology.",

@@ -37,7 +37,7 @@ export default function SectionHeading({
       {subtitle && (
         <p
           className={cn(
-            "text-base md:text-lg leading-relaxed max-w-2xl",
+            "hidden md:block text-base md:text-lg leading-relaxed max-w-2xl",
             centered ? "mx-auto" : "",
             light ? "text-white/80" : "text-gray-brand"
           )}

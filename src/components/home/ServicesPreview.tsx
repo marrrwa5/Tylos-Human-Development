@@ -94,7 +94,7 @@ export default function ServicesPreview() {
                       <h3 className="font-semibold text-gray-900 mb-2 group-hover:text-turquoise transition-colors text-sm">
                         {isAr ? service.titleAr : service.title}
                       </h3>
-                      <p className="text-gray-500 text-xs leading-relaxed">
+                      <p className="hidden md:block text-gray-500 text-xs leading-relaxed">
                         {isAr ? service.descriptionAr : service.description}
                       </p>
                     </div>

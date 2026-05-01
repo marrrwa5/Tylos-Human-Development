@@ -137,10 +137,11 @@ export default function AudienceSegments() {
                   </p>
                 </div>
 
-                {/* Description */}
-                <p className="text-white/60 text-sm leading-relaxed mb-6 flex-1">
+                {/* Description — hidden on mobile */}
+                <p className="hidden md:block text-white/60 text-sm leading-relaxed mb-6 flex-1">
                   {isAr ? seg.descriptionAr : seg.description}
                 </p>
+                <div className="md:hidden flex-1" />
 
                 {/* Highlight pills */}
                 <div className="flex flex-wrap gap-2 mb-6">

@@ -89,10 +89,11 @@ export default function CourseCard({ course, compact = false }: CourseCardProps)
 
         {/* Description — flex-1 fills remaining space, clamp-2 keeps equal height */}
         {!compact && (
-          <p className="text-gray-brand text-sm leading-relaxed line-clamp-2 flex-1">
+          <p className="hidden md:block text-gray-brand text-sm leading-relaxed line-clamp-2 flex-1">
             {isAr && course.descriptionAr ? course.descriptionAr : course.description}
           </p>
         )}
+        {!compact && <div className="md:hidden flex-1" />}
         {compact && <div className="flex-1" />}
 
         {/* Meta */}

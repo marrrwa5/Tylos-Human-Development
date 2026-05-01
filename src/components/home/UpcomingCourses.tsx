@@ -62,7 +62,7 @@ export default function UpcomingCourses() {
                     <h3 className="font-bold text-white text-base md:text-lg group-hover:text-turquoise transition-colors">
                       {isAr && course.titleAr ? course.titleAr : course.title}
                     </h3>
-                    <p className="text-white/50 text-sm mt-1 line-clamp-1">
+                    <p className="hidden md:block text-white/50 text-sm mt-1 line-clamp-1">
                       {course.certificateType}
                     </p>
                   </div>

@@ -124,7 +124,7 @@ export default function CourseAdvisor() {
                 <h2 className="text-2xl md:text-3xl font-bold text-white mb-4" style={{ fontFamily: "var(--font-sans)" }}>
                   {t("Not Sure Which Course Is Right for You?", "لست متأكداً من الدورة المناسبة لك؟")}
                 </h2>
-                <p className="text-white/75 text-base leading-relaxed max-w-xl mb-6">
+                <p className="hidden md:block text-white/75 text-base leading-relaxed max-w-xl mb-6">
                   {t(
                     "Answer 3 quick questions and our advisor will match you with the perfect training program for your goals and experience level.",
                     "أجب على 3 أسئلة سريعة وسيجد مستشارنا لك البرنامج التدريبي المثالي بناءً على أهدافك ومستوى خبرتك."

@@ -19,13 +19,13 @@ const LanguageContext = createContext<LanguageContextValue>({
 });
 
 export function LanguageProvider({ children }: { children: ReactNode }) {
-  const [lang, setLangState] = useState<Lang>("en");
-
-  // Load saved language on mount
-  useEffect(() => {
-    const saved = localStorage.getItem("tylos-lang") as Lang | null;
-    if (saved === "ar" || saved === "en") setLangState(saved);
-  }, []);
+  // Lazy initializer: reads localStorage synchronously on first client render.
+  // No useEffect delay = no flash. Falls back to "en" on SSR (window undefined).
+  const [lang, setLangState] = useState<Lang>(() => {
+    if (typeof window === "undefined") return "en";
+    const saved = localStorage.getItem("tylos-lang");
+    return saved === "ar" ? "ar" : "en";
+  });
 
   const setLang = (l: Lang) => {
     setLangState(l);

@@ -21,7 +21,7 @@ export default function NewsletterForm() {
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/newsletter", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify(data) });
+      const res = await fetch("https://formspree.io/f/xzdozpwj", { method: "POST", headers: { "Content-Type": "application/json", Accept: "application/json" }, body: JSON.stringify(data) });
       if (res.ok) {
         toast.success(t("You're subscribed! We'll keep you updated.", "تم اشتراكك! سنبقيك على اطلاع."));
         reset();

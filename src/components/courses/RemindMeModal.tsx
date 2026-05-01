@@ -37,7 +37,11 @@ export default function RemindMeModal({ open, onOpenChange, courseTitle, courseS
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/remind-me", { method: "POST", headers: { "Content-Type": "application/json" }, body: JSON.stringify({ ...data, courseSlug, courseTitle, startDate }) });
+      const res = await fetch("https://formspree.io/f/xgodejpz", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({ ...data, course: courseTitle, startDate }),
+      });
       if (res.ok) {
         setSubmitted(true);
         toast.success(t("We'll remind you when enrollment opens!", "سنذكرك عند فتح باب التسجيل!"));

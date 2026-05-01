@@ -37,10 +37,10 @@ export default function ContactPage() {
   const onSubmit = async (data: FormData) => {
     setLoading(true);
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/mojrqopw", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "contact" }),
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify(data),
       });
       if (res.ok) { toast.success("Message sent! We'll respond within 24 hours."); reset(); }
       else toast.error("Failed to send. Please try again.");

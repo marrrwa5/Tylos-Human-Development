@@ -27,17 +27,20 @@ export default function CorporateInquiryForm() {
     e.preventDefault();
     setSubmitting(true);
     try {
-      await fetch("/api/contact", {
+      const fd = new FormData();
+      fd.append("Company Name", form.company);
+      fd.append("Company Size", form.size);
+      fd.append("Industry", form.industry);
+      fd.append("Email", form.email);
+      fd.append("Phone", form.phone);
+      fd.append("Employees to Train", form.employees);
+      fd.append("Message", form.message);
+      if (profileFile) fd.append("Company Profile", profileFile);
+
+      await fetch("https://formspree.io/f/xqenkvgk", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: form.company,
-          email: form.email,
-          phone: form.phone,
-          subject: "Corporate Training Inquiry",
-          message: `Company: ${form.company}\nSize: ${form.size}\nIndustry: ${form.industry}\nEmployees to train: ${form.employees}\nProfile: ${profileFile?.name ?? "none"}\n\n${form.message}`,
-          type: "corporate",
-        }),
+        body: fd,
+        headers: { Accept: "application/json" },
       });
       toast.success(t("Inquiry sent! We'll be in touch shortly.", "تم إرسال الاستفسار! سنتواصل معك قريباً."));
       setForm({ company: "", size: "", industry: "", email: "", phone: "", employees: "", message: "" });

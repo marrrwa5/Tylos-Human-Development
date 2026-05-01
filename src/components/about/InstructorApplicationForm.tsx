@@ -33,13 +33,12 @@ export default function InstructorApplicationForm() {
     try {
       const formData = new FormData();
       Object.entries(data).forEach(([k, v]) => formData.append(k, v));
-      formData.append("type", "instructor-application");
       if (cvFile) formData.append("cv", cvFile);
 
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://formspree.io/f/mjglvqeq", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ ...data, type: "instructor-application", cvFileName: cvFile?.name }),
+        body: formData,
+        headers: { Accept: "application/json" },
       });
       if (res.ok) {
         toast.success(t("Application submitted! We'll be in touch soon.", "تم إرسال طلبك! سنتواصل معك قريباً."));

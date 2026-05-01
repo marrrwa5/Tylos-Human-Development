@@ -6,6 +6,7 @@ import ClientLogos from "@/components/home/ClientLogos";
 import CorporateProcess from "@/components/corporate/CorporateProcess";
 import CorporateBenefits from "@/components/corporate/CorporateBenefits";
 import CorporateForm from "@/components/corporate/CorporateForm";
+import ImageStrip from "@/components/shared/ImageStrip";
 import PageBannerText from "@/components/shared/PageBannerText";
 import BilText from "@/components/shared/BilText";
 
@@ -85,6 +86,8 @@ export default function CorporatePage() {
 
       {/* How It Works immediately after benefits */}
       <CorporateProcess />
+
+      <ImageStrip />
 
       <ClientLogos />
 

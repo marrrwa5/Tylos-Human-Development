@@ -71,7 +71,7 @@ export default function ClientLogos() {
       {/* Headline */}
       <div className="container-wide mb-10">
         <p className={`text-center font-bold text-white ${isAr ? "text-2xl md:text-3xl" : "text-lg uppercase tracking-widest"}`}>
-          {t("Trusted by Leaders Across Industries", "موثوق به من قبل")}
+          {t("Trusted by Leaders Across Industries", "نفتخر بثقة عملائنا")}
         </p>
       </div>
 

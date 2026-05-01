@@ -36,7 +36,7 @@ export default function CorporateBenefits() {
       <div className="container-wide">
         <ScrollReveal>
           <SectionHeading
-            title={t("Why Partner with Tylos?", "لماذا الشراكة مع تايلوس؟")}
+            title={t("Why Partner with Tylos?", "لماذا تختار تايلوس؟")}
             subtitle={t("A strategic partner in your organization's human capital development.", "شريك استراتيجي في تطوير رأس المال البشري لمؤسستك.")}
           />
         </ScrollReveal>

@@ -83,7 +83,7 @@ export default function CorporateProcess() {
             {t("Simple. Collaborative. Effective.", "بسيط. تعاوني. فعّال.")}
           </p>
           <h2 className="font-bold text-3xl md:text-4xl text-white">
-            {t("How It Works", "كيف يعمل")}
+            {t("How It Works", "منهجية العمل")}
           </h2>
           <p className="text-white/50 text-base mt-3 max-w-xl mx-auto">
             {t("From first conversation to certified outcomes in five clear steps.", "من أول محادثة إلى نتائج معتمدة في خمس خطوات واضحة.")}

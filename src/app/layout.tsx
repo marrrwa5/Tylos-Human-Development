@@ -5,6 +5,7 @@ import { LanguageProvider } from "@/context/LanguageContext";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import AIChatbot from "@/components/shared/AIChatbot";
+import WhatsAppCTA from "@/components/shared/WhatsAppCTA";
 import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
@@ -81,6 +82,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <AIChatbot />
+          <WhatsAppCTA />
           <Toaster position="bottom-right" richColors />
         </LanguageProvider>
       </body>
